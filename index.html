@@ -5,1075 +5,1358 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SANTRIVERSE — Dunia Santri Tanpa Batas</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&display=swap');
-
 :root {
-  --green: #062e29;
-  --deep: #031d1a;
-  --mint: #a9f0d0;
-  --cream: #f5f3eb;
-  --gold: #c9a66b;
-  --text: #102f2a;
-  --muted: #73847e;
-  --line: #e3e5dc;
+  --green: #062b26;
+  --green2: #0c4036;
+  --mint: #a9f1d1;
+  --cream: #f5f4ec;
+  --ink: #122c27;
+  --muted: #78847d;
+  --line: #e4e7dd;
+  --card: #fffef9;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--cream);
-  color: var(--text);
+  color: var(--ink);
+  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button { cursor: pointer; }
 
-.topbar {
-  background: var(--deep);
-  color: var(--mint);
-  padding: 9px 5%;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+.container {
+  width: min(1440px, 94%);
+  margin: auto;
 }
 
-nav {
-  height: 76px;
-  padding: 0 5%;
+/* HEADER */
+
+header {
+  background: #04231f;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #ffffff20;
+}
+
+.nav {
+  min-height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background: #082a26;
-  color: white;
-  border-bottom: 1px solid #ffffff1c;
-  position: sticky;
-  top: 0;
-  z-index: 20;
 }
 
-.logo {
+.brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-width: max-content;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.logo-symbol {
-  font-size: 37px;
+.brand-icon {
+  width: 46px;
+  height: 46px;
+  border: 2px solid var(--mint);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   color: var(--mint);
+  font-size: 27px;
+  transform: rotate(-15deg);
 }
 
-.logo h2 {
-  font-size: 23px;
+.brand strong {
+  display: block;
+  font-size: 22px;
   letter-spacing: 2px;
-  font-weight: 800;
+  line-height: 1.2;
 }
 
-.logo p {
-  color: #a7c0b7;
-  font-size: 9px;
-  letter-spacing: 1px;
+.brand small {
+  font-size: 10px;
+  color: #c2d8ce;
+  letter-spacing: .5px;
 }
 
 .nav-links {
   display: flex;
+  gap: clamp(12px, 2.2vw, 32px);
   align-items: center;
-  gap: 27px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .nav-links a {
   padding: 10px 0;
-  transition: .2s;
+  color: #e5eee9;
+  transition: color .2s;
 }
 
 .nav-links a:hover { color: var(--mint); }
 
-.nav-right {
+.search {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.search {
-  width: 230px;
   border: 1px solid #ffffff35;
   border-radius: 30px;
   padding: 10px 14px;
-  display: flex;
-  align-items: center;
+  min-width: 200px;
+  max-width: 290px;
 }
 
 .search input {
   width: 100%;
+  background: transparent;
+  color: white;
   border: none;
   outline: none;
-  background: transparent;
-  color: white;
-  font-size: 11px;
+  font-size: 12px;
 }
 
-.search input::placeholder { color: #b8c8c1; }
+.search input::placeholder { color: #c5d4ce; }
 
-.icon-btn {
-  border: none;
+.menu-btn {
+  display: none;
+  border: 1px solid #ffffff40;
   color: white;
   background: transparent;
-  font-size: 22px;
-  padding: 4px;
+  padding: 9px 12px;
+  border-radius: 10px;
 }
 
-/* HERO */
+/* HERO DESKTOP */
 
 .hero {
-  position: relative;
-  min-height: 420px;
-  overflow: hidden;
-  background: var(--deep);
+  background: var(--green);
   color: white;
-  display: flex;
-  align-items: center;
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, #031d1a 0%, #031d1ae8 28%,
-    #031d1a60 58%, #031d1a10 100%),
-    linear-gradient(0deg, #031d1a80, transparent 45%),
-    url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=2000&q=90")
-    center 48% / cover;
-  filter: saturate(.8);
-  transform: scale(1.02);
-}
-
-/* Dekorasi ilustratif */
-.orbit {
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  border: 1px solid #a9f0d01c;
-  border-radius: 50%;
-  right: 8%;
-  top: -30px;
-  box-shadow: 0 0 0 45px #a9f0d009, 0 0 0 90px #a9f0d006;
-}
-
-.hero-content {
-  width: 90%;
-  max-width: 1350px;
-  margin: auto;
   position: relative;
-  z-index: 2;
-  padding: 50px 0;
+  overflow: hidden;
 }
+
+.hero-inner {
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  align-items: center;
+  gap: 30px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.hero-copy { position: relative; z-index: 2; }
 
 .eyebrow {
   color: var(--mint);
   font-size: 11px;
   letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .hero h1 {
-  font-size: clamp(50px, 7vw, 94px);
-  line-height: .91;
-  letter-spacing: -4px;
-  max-width: 750px;
+  font-size: clamp(42px, 5.5vw, 82px);
+  line-height: .95;
+  letter-spacing: -3px;
   font-weight: 800;
-  text-transform: uppercase;
-  text-shadow: 0 8px 35px #0008;
+  margin-bottom: 15px;
 }
 
-.hero h1 span {
-  display: block;
-  font-family: 'Caveat', cursive;
-  color: var(--mint);
-  font-size: .63em;
-  letter-spacing: -1px;
-  text-transform: none;
-  margin-top: 12px;
-  font-weight: 600;
+.hero h1 span { color: var(--mint); }
+
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(19px, 2.4vw, 30px);
+  color: #b5f3d5;
+  margin-bottom: 17px;
 }
 
 .hero-desc {
-  max-width: 400px;
-  margin: 24px 0;
-  color: #d0dfd7;
+  color: #d4e2dc;
   font-size: 14px;
   line-height: 1.8;
+  max-width: 440px;
 }
 
-.hero-buttons {
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 13px;
+  gap: 12px;
+  margin-top: 25px;
 }
 
 .btn {
-  border: 1px solid var(--mint);
-  padding: 13px 23px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  border: 0;
   border-radius: 30px;
-  background: var(--mint);
-  color: var(--deep);
-  font-weight: 700;
+  padding: 13px 20px;
   font-size: 12px;
-  transition: .25s;
+  font-weight: 800;
+  transition: transform .25s, background .25s;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px #a9f0d02e;
-}
+.btn:hover { transform: translateY(-3px); }
+.btn-mint { background: var(--mint); color: var(--green); }
+.btn-outline { background: transparent; color: white; border: 1px solid #ffffff65; }
 
-.btn-outline {
-  background: transparent;
-  color: white;
-  border-color: #ffffff70;
-}
+/* ILUSTRASI ANIMASI BUATAN CSS */
 
-/* TICKER */
-
-.ticker {
-  overflow: hidden;
-  background: #073a32;
-  color: #e7f5ed;
-  padding: 14px 0;
-  white-space: nowrap;
-  font-size: 11px;
-  letter-spacing: .6px;
-}
-
-.ticker-track {
-  display: inline-block;
-  min-width: max-content;
-  animation: ticker 32s linear infinite;
-}
-
-.ticker-track span {
-  margin-right: 50px;
-}
-
-.ticker-track b { color: var(--mint); }
-
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* MAIN CONTENT */
-
-main {
-  max-width: 1450px;
-  margin: auto;
-  padding: 38px 5%;
-}
-
-.section-heading {
-  margin-bottom: 22px;
-}
-
-.section-heading small {
-  color: #478775;
-  letter-spacing: 2px;
-  font-weight: 700;
-  font-size: 10px;
-}
-
-.section-heading h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(27px, 3vw, 36px);
-  margin: 8px 0;
-  letter-spacing: -.7px;
-}
-
-.section-heading p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.8fr) minmax(260px, .85fr);
-  gap: 25px;
-}
-
-.stories {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 13px;
-}
-
-.featured {
-  min-height: 380px;
-  border-radius: 17px;
+.art-scene {
+  height: 340px;
   position: relative;
   overflow: hidden;
-  background: var(--green);
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  isolation: isolate;
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 65% 15%, #c1f0c9 0, transparent 22%),
+    linear-gradient(150deg, #427c69, #123f36 58%, #071f1d);
+  border: 1px solid #ffffff25;
+  box-shadow: 0 25px 65px #00000030;
 }
 
-.featured::before {
+.moon {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #d9f4ce;
+  right: 15%;
+  top: 12%;
+  box-shadow: 0 0 45px #d9f4ce70;
+}
+
+.star {
+  position: absolute;
+  color: #e4f8cb;
+  animation: twinkle 2.5s ease-in-out infinite alternate;
+}
+.s1 { top: 13%; left: 13%; }
+.s2 { top: 28%; right: 12%; animation-delay: .7s; }
+.s3 { top: 9%; left: 50%; animation-delay: 1.2s; }
+
+.mosque {
+  position: absolute;
+  bottom: 65px;
+  left: 8%;
+  right: 8%;
+  height: 155px;
+}
+
+.mosque-building {
+  position: absolute;
+  bottom: 0;
+  left: 12%;
+  right: 12%;
+  height: 83px;
+  background: #d8cba0;
+  border: 5px solid #aeaa7a;
+  border-bottom: none;
+}
+
+.mosque-building:before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(0deg, #031d1af5 0%, #031d1a88 40%, transparent 100%),
-    url("https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1000&q=85")
-    center / cover;
-  transition: transform .6s;
-}
-
-.featured:hover::before { transform: scale(1.06); }
-
-.featured-content { padding: 25px; }
-
-.tag {
-  display: inline-block;
-  background: #b4efd1;
-  color: #08372e;
-  border-radius: 20px;
-  padding: 5px 10px;
-  font-size: 9px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .7px;
-}
-
-.featured h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(23px, 2.4vw, 31px);
-  line-height: 1.25;
-  margin: 13px 0;
-}
-
-.featured p {
-  color: #d8e7df;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.meta {
-  display: flex;
-  gap: 18px;
-  margin-top: 18px;
-  color: #d0e0d7;
-  font-size: 10px;
-}
-
-.small-stories {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.story {
-  display: grid;
-  grid-template-columns: 95px 1fr;
-  gap: 12px;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #ffffffa8;
-  transition: .25s;
-}
-
-.story:hover {
-  transform: translateY(-3px);
-  border-color: #9bcdb7;
-  box-shadow: 0 10px 25px #123d2e0b;
-}
-
-.story img {
-  width: 95px;
-  height: 85px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.story .tag {
-  background: #e0f0e6;
-  font-size: 8px;
-  padding: 4px 8px;
-}
-
-.story h4 {
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 8px 0;
-}
-
-.story small {
-  color: var(--muted);
-  font-size: 10px;
-}
-
-/* SIDEBAR */
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.side-card {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 21px;
-  background: #fffefa;
-}
-
-.submit-card {
-  background:
-    radial-gradient(circle at 100% 0%, #216d57 0%, transparent 55%),
-    var(--deep);
-  color: white;
-  overflow: hidden;
-}
-
-.submit-card h3 {
-  font-family: 'Caveat', cursive;
-  font-size: 31px;
-  color: var(--mint);
-}
-
-.submit-card p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #d0e0d8;
-  margin: 8px 0 17px;
-}
-
-.submit-card .btn {
-  padding: 10px 18px;
-  font-size: 11px;
-}
-
-.side-title {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-.side-title .emoji { font-size: 28px; }
-
-.side-title h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-}
-
-.side-title p {
-  color: var(--muted);
-  font-size: 11px;
-  margin-top: 3px;
-}
-
-.glossary-search {
   width: 100%;
-  padding: 11px 13px;
-  border: 1px solid var(--line);
-  background: #fafaf6;
-  border-radius: 9px;
-  outline: none;
-  font-size: 11px;
+  height: 24px;
+  background: #b6bd91;
+  top: -24px;
+  left: -5px;
+  border: 5px solid #9ea984;
+}
+
+.dome {
+  position: absolute;
+  bottom: 83px;
+  width: 86px;
+  height: 74px;
+  background: linear-gradient(120deg, #a7e5c9, #3e8f75);
+  border-radius: 60% 60% 8% 8%;
+  border: 4px solid #d9e5b7;
+}
+
+.dome:before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  background: #e5e5bd;
+  top: -22px;
+  left: 50%;
+}
+
+.dome:after {
+  content: "☾";
+  position: absolute;
+  color: #f3e9b7;
+  top: -37px;
+  left: 40%;
+  font-size: 18px;
+}
+
+.dome-main { left: calc(50% - 43px); }
+.dome-left { left: 6%; transform: scale(.62); transform-origin: bottom; }
+.dome-right { right: 6%; transform: scale(.62); transform-origin: bottom; }
+
+.door {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 58px;
+  background: #1b5145;
+  border: 3px solid #b9d5b0;
+  border-radius: 22px 22px 0 0;
+}
+
+.window {
+  position: absolute;
+  bottom: 30px;
+  width: 21px;
+  height: 28px;
+  background: #315f51;
+  border: 3px solid #f1e8c4;
+  border-radius: 15px 15px 0 0;
+}
+.w1 { left: 22%; }
+.w2 { right: 22%; }
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  background: linear-gradient(#214c3d, #0a2a24);
+  clip-path: polygon(0 35%, 25% 0, 65% 20%, 100% 0, 100% 100%, 0 100%);
+}
+
+.desk {
+  position: absolute;
+  bottom: 22px;
+  left: 7%;
+  width: 86%;
+  height: 16px;
+  background: #d5bc8b;
+  transform: skew(-10deg);
+  border-radius: 4px;
+  box-shadow: 0 10px 0 #6c5c3d;
+}
+
+.book {
+  position: absolute;
+  bottom: 38px;
+  width: 100px;
+  height: 18px;
+  border-radius: 3px;
+  background: #e9d5a1;
+  border-bottom: 4px solid #a37c4f;
+  box-shadow: 0 6px 0 #153c32;
+}
+.book1 { left: 12%; transform: rotate(-5deg); }
+.book2 { left: 14%; bottom: 56px; background: #8abda2; transform: rotate(3deg); }
+.book3 { left: 16%; bottom: 74px; width: 83px; background: #e0b87c; }
+
+.laptop {
+  position: absolute;
+  right: 14%;
+  bottom: 39px;
+  width: 110px;
+  height: 75px;
+  background: #182d2b;
+  border: 5px solid #9aab9a;
+  border-radius: 7px;
+  transform: rotate(4deg);
+  box-shadow: 0 7px 18px #0005;
+}
+.laptop:before {
+  content: "✦  SANTRI";
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: #a9f1d1;
+  font-size: 12px;
+}
+.laptop:after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: -10px;
+  width: 120px;
+  height: 8px;
+  background: #a8b8a4;
+  clip-path: polygon(7% 0, 93% 0, 100% 100%, 0 100%);
+}
+
+.floating-note {
+  position: absolute;
+  right: 7%;
+  top: 18%;
+  background: #f5e8c5;
+  color: #17463a;
+  padding: 13px 15px;
+  border-radius: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  transform: rotate(7deg);
+  box-shadow: 0 10px 20px #0003;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-pen {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  font-size: 28px;
+  animation: float 3.5s ease-in-out infinite reverse;
+}
+
+.art-caption {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: #e0f4e6;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(5deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+@keyframes twinkle {
+  from { opacity: .4; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.15); }
+}
+
+/* NEWS TICKER */
+
+.ticker {
+  background: #0b3830;
+  color: #e6f5ed;
+  overflow: hidden;
+  border-top: 1px solid #ffffff12;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.ticker-inner {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  width: max-content;
+  padding: 15px 0;
+  animation: ticker 28s linear infinite;
+  font-size: 12px;
+}
+.ticker-inner span:first-child { color: var(--mint); font-weight: 800; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* SECTION */
+
+main { padding: 30px 0 65px; }
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #537c69;
+  font-weight: 800;
   margin-bottom: 10px;
 }
 
-.word {
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(25px, 3vw, 37px);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+/* FEATURED NEWS + SIDEBAR */
+
+.news-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(260px, .85fr);
+  gap: 25px;
+}
+
+.news-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(230px, .85fr);
+  gap: 16px;
+}
+
+.featured {
+  min-height: 370px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  color: white;
+  background:
+    linear-gradient(0deg, #031f1bdc, #031f1b05 85%),
+    radial-gradient(ellipse at 50% 20%, #a8d7b4, transparent 25%),
+    linear-gradient(135deg, #6c9977, #163f32 70%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  isolation: isolate;
+}
+
+.featured:before {
+  content: "✦";
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 40px;
+  color: #f4edc0;
+  animation: twinkle 3s infinite alternate;
+}
+
+.featured:after {
+  content: "☾";
+  position: absolute;
+  font-size: 230px;
+  top: 20px;
+  right: 20px;
+  color: #d5edce20;
+  z-index: -1;
+}
+
+.featured-content { max-width: 500px; }
+
+.tag {
+  display: inline-block;
+  border: 1px solid #c6f5d5;
+  background: #0b3c2fc9;
+  border-radius: 30px;
+  padding: 6px 11px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.featured h3 {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.16;
+  margin-bottom: 12px;
+}
+
+.featured p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #e3eee7;
+}
+
+.read-link {
+  display: inline-block;
+  margin-top: 17px;
+  background: var(--mint);
+  color: var(--green);
+  border-radius: 25px;
+  padding: 11px 15px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-mini {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr);
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 10px;
+  min-height: 108px;
+  transition: transform .25s, box-shadow .25s;
+}
+.news-mini:hover, .story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #153b2b12;
+}
+
+.mini-art {
+  min-height: 85px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 34px;
+  background: linear-gradient(140deg, #c3ddbf, #285e4a);
+}
+
+.mini-art.gold { background: linear-gradient(140deg, #f0d7a4, #557a58); }
+.mini-art.blue { background: linear-gradient(140deg, #c2ddd7, #355f62); }
+
+.mini-content { align-self: center; }
+.mini-content .category {
+  color: #34725c;
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+.mini-content h4 { font-size: 13px; line-height: 1.45; margin: 7px 0; }
+.mini-content small { color: var(--muted); font-size: 10px; }
+
+/* SIDEBAR */
+
+.sidebar { display: flex; flex-direction: column; gap: 15px; }
+
+.pitch {
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  background: linear-gradient(130deg, #0a4237, #05251f);
+  color: white;
+  padding: 23px;
+}
+.pitch h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+.pitch p { font-size: 12px; line-height: 1.7; color: #d8e7df; max-width: 260px; }
+.pitch .btn { margin-top: 15px; padding: 10px 15px; }
+.pitch-icon {
+  position: absolute;
+  right: 17px;
+  top: 22px;
+  font-size: 40px;
+  color: var(--mint);
+  animation: float 4s infinite;
+}
+
+.glossary {
+  background: #fffef9;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  padding: 20px;
+}
+.glossary h3 { font-family: 'Playfair Display', serif; font-size: 22px; }
+.glossary p { color: var(--muted); font-size: 12px; margin: 6px 0 15px; }
+.glossary-row {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  padding: 11px 2px;
-  border-bottom: 1px solid #e9ebe4;
-  font-size: 11px;
-}
-
-.word b { color: #0c5647; }
-.word span { color: var(--muted); text-align: right; }
-
-.category-section { margin-top: 35px; }
-
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.category {
-  border: 1px solid var(--line);
-  border-radius: 40px;
-  background: #fffefa;
-  padding: 12px 17px;
-  color: var(--text);
-  font-size: 11px;
-  font-weight: 600;
-  transition: .2s;
-}
-
-.category:hover, .category.active {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--mint);
-}
-
-.category-results {
-  margin-top: 15px;
-  color: var(--muted);
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
   font-size: 12px;
+}
+.glossary-row span { color: var(--muted); text-align: right; }
+
+/* CATEGORY NAV */
+
+.category-section { margin-top: 42px; }
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+}
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: #fffef9;
+  border-radius: 14px;
+  padding: 16px 12px;
+  transition: .25s;
+}
+.category-card:hover {
+  background: #e1f5e7;
+  transform: translateY(-3px);
+}
+.category-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #e0eee0;
+  font-size: 21px;
+}
+.category-card strong { display: block; font-size: 12px; line-height: 1.4; }
+.category-card small { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
+
+/* FIVE JOURNALISM SECTIONS */
+
+.stories-section { margin-top: 55px; }
+
+.stories-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.story-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.story-art {
+  height: 185px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-size: 72px;
+  background: linear-gradient(145deg, #b3d9b5, #1b5844);
+}
+.story-art:before, .story-art:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #ffffff50;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}
+.story-art:after { width: 240px; height: 240px; }
+.story-art span { position: relative; z-index: 2; animation: float 4s infinite; }
+.story-art.cream { background: linear-gradient(145deg, #eadab1, #66876c); }
+.story-art.blue { background: linear-gradient(145deg, #c4dfd6, #346b6d); }
+.story-art.rose { background: linear-gradient(145deg, #e9c8a8, #5e6550); }
+.story-art.dark { background: linear-gradient(145deg, #557d67, #102f2a); }
+
+.story-body { padding: 19px; }
+.story-body .category { color: #34725c; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.story-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.35;
+  margin: 10px 0;
+}
+.story-body p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+.story-meta { display: flex; justify-content: space-between; margin-top: 16px; color: var(--muted); font-size: 10px; }
+
+/* SEARCH FILTER */
+
+.filter-bar { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
+.filter-btn {
+  border: 1px solid #d7e1d7;
+  border-radius: 30px;
+  background: #fffef9;
+  padding: 10px 15px;
+  color: var(--ink);
+  font-size: 11px;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--green);
+  color: white;
 }
 
 /* FOOTER */
 
 footer {
-  background: var(--deep);
-  color: white;
-  padding: 35px 5%;
-  margin-top: 40px;
+  background: #04231f;
+  color: #e9f2ec;
+  padding: 38px 0 25px;
+  margin-top: 50px;
 }
-
 .footer-inner {
-  max-width: 1350px;
-  margin: auto;
   display: flex;
+  align-items: start;
   justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: center;
+  gap: 30px;
 }
-
-footer h2 {
-  font-size: 21px;
-  letter-spacing: 2px;
-  color: var(--mint);
-}
-
-footer p {
-  color: #a8c0b5;
-  font-size: 11px;
-  line-height: 1.8;
-  margin-top: 8px;
-}
-
-footer .footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  font-size: 11px;
-}
+.footer-brand { font-size: 23px; letter-spacing: 2px; font-weight: 800; }
+.footer-inner p { color: #b8cec2; font-size: 12px; line-height: 1.8; max-width: 350px; margin-top: 10px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: 12px; }
+.copyright { border-top: 1px solid #ffffff20; margin-top: 25px; padding-top: 18px; font-size: 10px; color: #9cb5a7; }
 
 .back-top {
   position: fixed;
-  right: 20px;
   bottom: 20px;
-  z-index: 10;
-  border: none;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border: 0;
   border-radius: 50%;
   background: var(--green);
-  color: var(--mint);
-  width: 43px;
-  height: 43px;
-  font-size: 20px;
-  box-shadow: 0 5px 20px #0002;
+  color: white;
+  font-size: 21px;
+  box-shadow: 0 6px 20px #0002;
+  z-index: 80;
 }
 
-/* FORM MODAL */
+/* RESPONSIVE: TABLET */
 
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #001713c9;
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal.show { display: flex; }
-
-.modal-box {
-  background: var(--cream);
-  padding: 27px;
-  border-radius: 18px;
-  width: min(100%, 470px);
-  max-height: 90vh;
-  overflow: auto;
-}
-
-.modal-box h2 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 8px;
-}
-
-.modal-box p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.7;
-  margin-bottom: 17px;
-}
-
-.modal-box input, .modal-box textarea, .modal-box select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: white;
-  outline-color: #65a58b;
-  font-size: 12px;
-}
-
-.modal-box textarea { min-height: 120px; resize: vertical; }
-
-.modal-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.modal-actions button { flex: 1; }
-
-.close-btn {
-  background: transparent;
-  border: 1px solid #b9c7be;
-  color: var(--text);
-}
-
-@media (max-width: 1000px) {
-  nav { gap: 12px; }
-  .nav-links { gap: 12px; }
-  .search { width: 175px; }
-  .content-grid { grid-template-columns: 1fr; }
+@media (max-width: 1100px) {
+  .nav { gap: 14px; }
+  .brand strong { font-size: 18px; }
+  .nav-links { gap: 13px; font-size: 12px; }
+  .search { min-width: 160px; }
+  .hero-inner { grid-template-columns: .9fr 1.1fr; }
+  .news-layout { grid-template-columns: 1fr; }
   .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+  .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-@media (max-width: 720px) {
-  .topbar { justify-content: center; text-align: center; }
-  .topbar span:last-child { display: none; }
+/* RESPONSIVE: MOBILE */
 
-  nav {
-    height: auto;
-    min-height: 70px;
-    flex-wrap: wrap;
-    padding: 14px 5%;
-  }
+@media (max-width: 760px) {
+  .container { width: min(100% - 28px, 560px); }
 
-  .logo h2 { font-size: 19px; }
-  .logo-symbol { font-size: 30px; }
+  .nav { min-height: 66px; flex-wrap: wrap; padding: 10px 0; }
+  .brand-icon { width: 38px; height: 38px; font-size: 22px; }
+  .brand strong { font-size: 16px; letter-spacing: 1.4px; }
+  .brand small { font-size: 9px; }
+
+  .menu-btn { display: block; }
+  .search { order: 3; max-width: none; min-width: 100%; padding: 9px 13px; }
+
   .nav-links {
-    order: 3;
+    display: none;
+    order: 4;
     width: 100%;
-    justify-content: space-between;
-    gap: 8px;
-    overflow-x: auto;
-    font-size: 11px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 5px 0 10px;
   }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 11px 6px; border-top: 1px solid #ffffff18; }
 
-  .nav-links a { white-space: nowrap; }
-  .search { width: 38px; padding: 9px; }
-  .search input { display: none; }
-  .nav-right { gap: 5px; }
-
-  .hero { min-height: 420px; }
-  .hero-image {
-    background:
-      linear-gradient(90deg, #031d1aee, #031d1a8c),
-      url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1000&q=85")
-      center / cover;
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 35px;
+    padding-bottom: 25px;
   }
-
-  .hero-content { padding: 50px 0; }
-  .hero h1 { letter-spacing: -2px; font-size: clamp(46px, 12vw, 70px); }
+  .eyebrow { font-size: 9px; letter-spacing: 3px; margin-bottom: 13px; }
+  .hero h1 { font-size: clamp(43px, 12vw, 64px); letter-spacing: -2px; }
+  .hero-subtitle { font-size: 23px; }
   .hero-desc { font-size: 12px; }
-  main { padding: 30px 5%; }
+  .hero-actions { margin-top: 19px; }
+  .btn { padding: 12px 16px; font-size: 11px; }
 
-  .stories { grid-template-columns: 1fr; }
-  .featured { min-height: 350px; }
-  .small-stories { display: grid; grid-template-columns: 1fr; }
-  .story { grid-template-columns: 90px 1fr; }
-  .story img { width: 90px; height: 80px; }
+  .art-scene { height: 270px; border-radius: 16px; }
+  .mosque { transform: scale(.82); transform-origin: bottom center; left: 0; right: 0; }
+  .floating-note { font-size: 10px; padding: 10px; }
+
+  .ticker-inner { padding: 12px 0; font-size: 11px; }
+
+  main { padding-top: 25px; }
+  .section-title { font-size: 27px; }
+  .section-intro { font-size: 12px; }
+
+  .news-top { grid-template-columns: 1fr; }
+  .featured { min-height: 330px; padding: 20px; }
+  .featured h3 { font-size: 28px; }
+  .featured p { font-size: 12px; }
+  .news-list { gap: 10px; }
+  .news-mini { grid-template-columns: 88px minmax(0, 1fr); min-height: 95px; }
+  .mini-art { min-height: 75px; font-size: 29px; }
+
   .sidebar { grid-template-columns: 1fr; }
-  .side-card { padding: 18px; }
-  .category { padding: 10px 13px; }
-  .footer-inner { align-items: flex-start; flex-direction: column; }
+  .pitch { padding: 21px; }
+
+  .category-section { margin-top: 32px; }
+  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .category-card { padding: 12px 9px; gap: 9px; }
+  .category-icon { width: 34px; height: 34px; font-size: 18px; }
+  .category-card strong { font-size: 11px; }
+  .category-card small { font-size: 9px; }
+
+  .stories-section { margin-top: 38px; }
+  .stories-heading { align-items: start; flex-direction: column; }
+  .story-grid { grid-template-columns: 1fr; gap: 14px; }
+  .story-art { height: 175px; }
+  .story-body h3 { font-size: 20px; }
+
+  .footer-inner { flex-direction: column; }
+  .footer-links { gap: 14px; }
+  .back-top { right: 13px; bottom: 14px; width: 40px; height: 40px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
+/* HP KECIL */
+
+@media (max-width: 360px) {
+  .container { width: calc(100% - 22px); }
+  .hero h1 { font-size: 39px; }
+  .brand strong { font-size: 14px; }
+  .featured { min-height: 300px; }
+  .featured h3 { font-size: 24px; }
+  .category-card { flex-direction: column; align-items: flex-start; }
+  .category-grid { gap: 7px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  <span>✦ Media Kreatif Santri Masa Kini</span>
-  <span>✧ Baca · Berkarya · Berdampak</span>
-</div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#beranda">
+      <div class="brand-icon">✧</div>
+      <div>
+        <strong>SANTRIVERSE</strong>
+        <small>Dunia Santri Tanpa Batas</small>
+      </div>
+    </a>
 
-<nav>
-  <a href="#" class="logo">
-    <span class="logo-symbol">◉</span>
-    <div>
-      <h2>SANTRIVERSE</h2>
-      <p>DUNIA SANTRI TANPA BATAS</p>
-    </div>
-  </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#berita">Berita</a>
+      <a href="#opini">Opini</a>
+      <a href="#karya">Karya</a>
+      <a href="#kamus">Kamus Santri</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
 
-  <div class="nav-links">
-    <a href="#">Beranda</a>
-    <a href="#berita">Berita</a>
-    <a href="#kategori">Opini</a>
-    <a href="#karya">Karya</a>
-    <a href="#kamus">Kamus Santri</a>
-    <a href="#tentang">Tentang</a>
-  </div>
-
-  <div class="nav-right">
     <label class="search">
-      <input id="searchInput" type="search" placeholder="Cari berita, topik...">
+      <input id="searchInput" type="search" placeholder="Cari berita, topik, atau kata kunci...">
       <span>⌕</span>
     </label>
-    <button class="icon-btn" id="themeBtn" aria-label="Ganti tema">☾</button>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
   </div>
-</nav>
+</header>
 
-<section class="hero">
-  <div class="hero-image"></div>
-  <div class="orbit"></div>
+<section class="hero" id="beranda">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">✦ MEDIA JURNALISTIK DIGITAL</div>
+      <h1>SANTRI<span>VERSE</span></h1>
+      <div class="hero-subtitle">Dunia Santri Tanpa Batas.</div>
+      <p class="hero-desc">
+        Ruang untuk bercerita, berkarya, dan menyuarakan gagasan.
+        Dari pesantren untuk dunia.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-mint" href="#berita">Jelajahi Berita ↗</a>
+        <a class="btn btn-outline" href="#karya">✧ Punya Karya?</a>
+      </div>
+    </div>
 
-  <div class="hero-content">
-    <p class="eyebrow">✦ Media Jurnalistik Digital</p>
-    <h1>SANTRIVERSE
-      <span>Dunia Santri Tanpa Batas ✧</span>
-    </h1>
-
-    <p class="hero-desc">
-      Ruang untuk bercerita, berkarya, dan menyuarakan gagasan.
-      Dari pesantren untuk dunia.
-    </p>
-
-    <div class="hero-buttons">
-      <a class="btn" href="#berita">Jelajahi Berita&nbsp; →</a>
-      <a class="btn btn-outline" href="#karya">✦ Punya Karya?</a>
+    <div class="art-scene" aria-label="Ilustrasi animasi pesantren dan meja literasi">
+      <div class="moon"></div>
+      <span class="star s1">✦</span>
+      <span class="star s2">✧</span>
+      <span class="star s3">✦</span>
+      <div class="art-caption">LITERASI • KREATIVITAS • PESANTREN</div>
+      <div class="floating-pen">✎</div>
+      <div class="mosque">
+        <div class="dome dome-left"></div>
+        <div class="dome dome-main"></div>
+        <div class="dome dome-right"></div>
+        <div class="mosque-building">
+          <div class="window w1"></div>
+          <div class="window w2"></div>
+          <div class="door"></div>
+        </div>
+      </div>
+      <div class="ground"></div>
+      <div class="desk"></div>
+      <div class="book book1"></div>
+      <div class="book book2"></div>
+      <div class="book book3"></div>
+      <div class="laptop"></div>
+      <div class="floating-note">Baca.<br>Tulis.<br>Berkarya. ✦</div>
     </div>
   </div>
 </section>
 
 <div class="ticker">
-  <div class="ticker-track">
-    <span>✦ <b>BERITA TERKINI</b></span>
-    <span>✧ Santri dan transformasi digital</span>
-    <span>✧ Literasi untuk generasi masa depan</span>
-    <span>✧ Karya santri, inspirasi negeri</span>
-    <span>✧ Dunia pesantren makin kreatif</span>
-    <span>✦ <b>BERITA TERKINI</b></span>
-    <span>✧ Santri dan transformasi digital</span>
-    <span>✧ Literasi untuk generasi masa depan</span>
-    <span>✧ Karya santri, inspirasi negeri</span>
-    <span>✧ Dunia pesantren makin kreatif</span>
+  <div class="ticker-inner">
+    <span>✦ BERITA TERKINI</span>
+    <span>◆ Santri dan perkembangan literasi digital</span>
+    <span>◆ Cerita inspiratif dari dunia pesantren</span>
+    <span>◆ Karya santri untuk Indonesia</span>
+    <span>◆ Kolaborasi, kreativitas, dan prestasi</span>
+    <span>✦ BERITA TERKINI</span>
+    <span>◆ Santri dan perkembangan literasi digital</span>
+    <span>◆ Cerita inspiratif dari dunia pesantren</span>
+    <span>◆ Karya santri untuk Indonesia</span>
+    <span>◆ Kolaborasi, kreativitas, dan prestasi</span>
   </div>
 </div>
 
-<main>
+<main class="container">
+
   <section id="berita">
-    <div class="section-heading">
-      <small>01 — PILIHAN REDAKSI</small>
-      <h2>Cerita yang layak disimak.</h2>
-      <p>Temukan perspektif baru dari dunia pesantren, literasi, dan teknologi.</p>
-    </div>
+    <div class="section-label">01 — PILIHAN REDAKSI</div>
+    <div class="news-layout">
+      <div>
+        <h2 class="section-title">Cerita yang layak disimak.</h2>
+        <p class="section-intro">Temukan perspektif baru dari dunia pesantren, literasi, dan teknologi.</p>
 
-    <div class="content-grid">
-      <div class="stories">
-        <article class="featured searchable" data-category="Pesantren">
-          <div class="featured-content">
-            <span class="tag">Pesantren</span>
-            <h3>Di Balik Kesederhanaan Pesantren, Ada Mimpi yang Mendunia</h3>
-            <p>Pesantren bukan hanya tempat menimba ilmu, tetapi juga ruang untuk membangun karakter, persahabatan, dan cita-cita.</p>
-            <div class="meta">
-              <span>▣ 20 Okt 2026</span>
-              <span>◉ Cerita Santri</span>
+        <div class="news-top">
+          <article class="featured searchable">
+            <div class="featured-content">
+              <span class="tag">PESANTREN</span>
+              <h3>Di Balik Kesederhanaan Pesantren, Ada Mimpi yang Mendunia</h3>
+              <p>Pesantren bukan hanya tempat menimba ilmu, tetapi juga ruang untuk membangun karakter, persahabatan, dan cita-cita.</p>
+              <a class="read-link" href="#liputan">Baca Selengkapnya ↗</a>
             </div>
+          </article>
+
+          <div class="news-list">
+            <article class="news-mini searchable">
+              <div class="mini-art">💻</div>
+              <div class="mini-content">
+                <div class="category">TEKNOLOGI</div>
+                <h4>Web 2.0 dan Peluang Baru bagi Kreativitas Santri</h4>
+                <small>3 Mei · Literasi digital</small>
+              </div>
+            </article>
+            <article class="news-mini searchable">
+              <div class="mini-art gold">✒️</div>
+              <div class="mini-content">
+                <div class="category">LITERASI</div>
+                <h4>Seni Menulis untuk Mereka yang Punya Banyak Cerita</h4>
+                <small>2 Mei · Kepenulisan</small>
+              </div>
+            </article>
+            <article class="news-mini searchable">
+              <div class="mini-art blue">📱</div>
+              <div class="mini-content">
+                <div class="category">OPINI</div>
+                <h4>Menjadi Diri Sendiri di Tengah Ramainya Dunia Digital</h4>
+                <small>1 Mei · Esai santri</small>
+              </div>
+            </article>
           </div>
-        </article>
-
-        <div class="small-stories">
-          <article class="story searchable" data-category="Teknologi">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Ilustrasi meja teknologi">
-            <div>
-              <span class="tag">Teknologi</span>
-              <h4>Web 2.0 dan Peluang Baru bagi Kreativitas Santri</h4>
-              <small>20 Okt 2026 · 4 menit baca</small>
-            </div>
-          </article>
-
-          <article class="story searchable" data-category="Literasi">
-            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=400&q=80" alt="Buku catatan dan pena">
-            <div>
-              <span class="tag">Literasi</span>
-              <h4>Seni Menulis untuk Mereka yang Punya Banyak Cerita</h4>
-              <small>19 Okt 2026 · 3 menit baca</small>
-            </div>
-          </article>
-
-          <article class="story searchable" data-category="Opini">
-            <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=400&q=80" alt="Buku untuk inspirasi">
-            <div>
-              <span class="tag">Opini</span>
-              <h4>Menjadi Diri Sendiri di Tengah Ramainya Dunia Digital</h4>
-              <small>18 Okt 2026 · 5 menit baca</small>
-            </div>
-          </article>
         </div>
       </div>
 
       <aside class="sidebar">
-        <section class="side-card submit-card" id="karya">
+        <div class="pitch" id="karya">
+          <div class="pitch-icon">➤</div>
           <h3>Punya Karya?</h3>
-          <p>Kirim tulisan, opini, puisi, cerpen, atau liputanmu di sini. Yuk, bagikan inspirasimu!</p>
-          <button class="btn" id="openForm">Kirim Karya ↗</button>
-        </section>
+          <p>Kirim tulisan, opini, puisi, atau liputanmu di sini. Yuk, bagikan inspirasi melalui tulisanmu!</p>
+          <a class="btn btn-mint" href="mailto:redaksi@santriverse.id?subject=Pengiriman%20Karya%20Santri">Kirim Karya ↗</a>
+        </div>
 
-        <section class="side-card" id="kamus">
-          <div class="side-title">
-            <span class="emoji">📚</span>
-            <div>
-              <h3>Kamus Santri</h3>
-              <p>Kenali istilah pesantren dengan mudah.</p>
-            </div>
-          </div>
-
-          <input class="glossary-search" id="glossarySearch" placeholder="⌕ Cari istilah...">
-
-          <div id="words">
-            <div class="word"><b>Santri</b><span>Orang yang belajar agama di pesantren</span></div>
-            <div class="word"><b>Kiai</b><span>Tokoh agama dan teladan</span></div>
-            <div class="word"><b>Ngaji</b><span>Belajar ilmu agama</span></div>
-            <div class="word"><b>Bandongan</b><span>Metode belajar kitab bersama</span></div>
-            <div class="word"><b>Sorogan</b><span>Belajar dengan menyetorkan bacaan</span></div>
-          </div>
-        </section>
+        <div class="glossary" id="kamus">
+          <h3>📚 Kamus Santri</h3>
+          <p>Kenali istilah pesantren dengan mudah.</p>
+          <div class="glossary-row"><b>Santri</b><span>Penuntut ilmu di pesantren</span></div>
+          <div class="glossary-row"><b>Kiai</b><span>Tokoh agama dan teladan</span></div>
+          <div class="glossary-row"><b>Ngaji</b><span>Belajar ilmu agama</span></div>
+          <div class="glossary-row"><b>Bandongan</b><span>Metode belajar kitab</span></div>
+          <div class="glossary-row"><b>Sorogan</b><span>Belajar secara individual</span></div>
+        </div>
       </aside>
     </div>
   </section>
 
-  <section class="category-section" id="kategori">
-    <div class="section-heading">
-      <small>02 — TEMUKAN MINATMU</small>
-      <h2>Jelajahi dunia santri.</h2>
+  <section class="category-section">
+    <div class="section-label">TEMUKAN MINATMU</div>
+    <h2 class="section-title">Jelajahi dunia santri.</h2>
+    <p class="section-intro">Pilih ruang yang paling dekat dengan minatmu.</p>
+    <div class="category-grid">
+      <a class="category-card" href="#liputan"><div class="category-icon">🏫</div><div><strong>Pesantren</strong><small>Berita & liputan</small></div></a>
+      <a class="category-card" href="#opini"><div class="category-icon">✍️</div><div><strong>Literasi</strong><small>Opini & esai</small></div></a>
+      <a class="category-card" href="#lensa"><div class="category-icon">📷</div><div><strong>Fotografi</strong><small>Galeri lensa</small></div></a>
+      <a class="category-card" href="#tokoh"><div class="category-icon">🎙️</div><div><strong>Wawancara</strong><small>Cerita inspiratif</small></div></a>
+      <a class="category-card" href="#karya"><div class="category-icon">📖</div><div><strong>Kreativitas</strong><small>Sastra & karya</small></div></a>
     </div>
-
-    <div class="categories">
-      <button class="category active" data-filter="Semua">✦ Semua</button>
-      <button class="category" data-filter="Pesantren">🏡 Pesantren</button>
-      <button class="category" data-filter="Literasi">📖 Literasi</button>
-      <button class="category" data-filter="Teknologi">💻 Teknologi</button>
-      <button class="category" data-filter="Opini">✎ Opini</button>
-      <button class="category" data-filter="Kreativitas">🎨 Kreativitas</button>
-    </div>
-
-    <p class="category-results" id="categoryStatus">Menampilkan semua kategori.</p>
   </section>
+
+  <section class="stories-section" id="liputan">
+    <div class="section-label">02 — BERITA DAN LIPUTAN UTAMA</div>
+    <div class="stories-heading">
+      <div>
+        <h2 class="section-title">Dari pesantren, untuk dunia.</h2>
+        <p class="section-intro">Kabar, gagasan, dan cerita dari balik kehidupan santri.</p>
+      </div>
+    </div>
+    <div class="story-grid">
+      <article class="story-card searchable">
+        <div class="story-art"><span>🏫</span></div>
+        <div class="story-body">
+          <div class="category">BERITA & LIPUTAN</div>
+          <h3>Lebih Dekat dengan Kehidupan Santri Masa Kini</h3>
+          <p>Mengenal kegiatan, kebiasaan, dan semangat belajar di lingkungan pesantren.</p>
+          <div class="story-meta"><span>Redaksi Santriverse</span><span>5 menit baca</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art cream"><span>📰</span></div>
+        <div class="story-body">
+          <div class="category">LIPUTAN KHUSUS</div>
+          <h3>Literasi Digital Mulai Tumbuh di Pesantren</h3>
+          <p>Bagaimana teknologi menjadi ruang baru untuk belajar dan menyebarkan kebaikan.</p>
+          <div class="story-meta"><span>Tim Liputan</span><span>4 menit baca</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art blue"><span>🌱</span></div>
+        <div class="story-body">
+          <div class="category">KABAR SANTRI</div>
+          <h3>Gerakan Kecil yang Membawa Perubahan Besar</h3>
+          <p>Kisah kegiatan santri yang membangun kepedulian terhadap lingkungan sekitar.</p>
+          <div class="story-meta"><span>Tim Redaksi</span><span>3 menit baca</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="stories-section" id="opini">
+    <div class="section-label">03 — OPINI DAN ESAI SANTRI</div>
+    <div class="stories-heading">
+      <div>
+        <h2 class="section-title">Suara, sudut pandang, dan pemikiran.</h2>
+        <p class="section-intro">Tempat gagasan santri bertemu dengan dunia yang lebih luas.</p>
+      </div>
+    </div>
+    <div class="story-grid">
+      <article class="story-card searchable">
+        <div class="story-art dark"><span>💭</span></div>
+        <div class="story-body">
+          <div class="category">OPINI</div>
+          <h3>Menjadi Santri di Tengah Perubahan Zaman</h3>
+          <p>Menjaga nilai, membuka wawasan, dan bertumbuh tanpa kehilangan jati diri.</p>
+          <div class="story-meta"><span>Opini Santri</span><span>4 menit baca</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art cream"><span>🌿</span></div>
+        <div class="story-body">
+          <div class="category">ESAI</div>
+          <h3>Belajar Sabar dari Hal-Hal Sederhana</h3>
+          <p>Refleksi tentang proses, kedisiplinan, dan arti perjalanan belajar.</p>
+          <div class="story-meta"><span>Esai Pilihan</span><span>3 menit baca</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art blue"><span>🌏</span></div>
+        <div class="story-body">
+          <div class="category">PERSPEKTIF</div>
+          <h3>Santri dan Masa Depan Indonesia</h3>
+          <p>Mengapa pendidikan, kreativitas, dan kepedulian sosial saling berkaitan.</p>
+          <div class="story-meta"><span>Ruang Gagasan</span><span>5 menit baca</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="stories-section" id="karya">
+    <div class="section-label">04 — SASTRA DAN KARYA</div>
+    <div class="stories-heading">
+      <div>
+        <h2 class="section-title">Kata-kata yang punya makna.</h2>
+        <p class="section-intro">Puisi, cerpen, dan karya kreatif dari para santri.</p>
+      </div>
+    </div>
+    <div class="story-grid">
+      <article class="story-card searchable">
+        <div class="story-art rose"><span>📜</span></div>
+        <div class="story-body">
+          <div class="category">PUISI</div>
+          <h3>Di Antara Lantunan Doa dan Mimpi</h3>
+          <p>Karya sastra tentang harapan yang tumbuh dalam kesederhanaan.</p>
+          <div class="story-meta"><span>Ruang Sastra</span><span>Puisi</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art"><span>📚</span></div>
+        <div class="story-body">
+          <div class="category">CERPEN</div>
+          <h3>Surat Kecil dari Kamar Pesantren</h3>
+          <p>Sebuah cerita tentang persahabatan, keluarga, dan arti pulang.</p>
+          <div class="story-meta"><span>Ruang Cerita</span><span>Cerpen</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art cream"><span>🖋️</span></div>
+        <div class="story-body">
+          <div class="category">KARYA SANTRI</div>
+          <h3>Menulis untuk Menyampaikan Kebaikan</h3>
+          <p>Setiap tulisan bisa menjadi awal dari perubahan yang berarti.</p>
+          <div class="story-meta"><span>Galeri Karya</span><span>Inspirasi</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="stories-section" id="tokoh">
+    <div class="section-label">05 — TOKOH DAN WAWANCARA</div>
+    <div class="stories-heading">
+      <div>
+        <h2 class="section-title">Mendengar cerita, menemukan inspirasi.</h2>
+        <p class="section-intro">Percakapan dan pengalaman dari orang-orang yang memberi makna.</p>
+      </div>
+    </div>
+    <div class="story-grid">
+      <article class="story-card searchable">
+        <div class="story-art dark"><span>🎙️</span></div>
+        <div class="story-body">
+          <div class="category">WAWANCARA</div>
+          <h3>Belajar Memimpin dengan Memberi Teladan</h3>
+          <p>Berbincang tentang tanggung jawab, ketekunan, dan kepedulian.</p>
+          <div class="story-meta"><span>Tim Wawancara</span><span>6 menit baca</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art blue"><span>🌟</span></div>
+        <div class="story-body">
+          <div class="category">TOKOH INSPIRATIF</div>
+          <h3>Dari Ruang Belajar Menuju Prestasi</h3>
+          <p>Mengulik proses di balik perjalanan seseorang meraih cita-cita.</p>
+          <div class="story-meta"><span>Profil Santri</span><span>5 menit baca</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art cream"><span>📖</span></div>
+        <div class="story-body">
+          <div class="category">DIALOG</div>
+          <h3>Nasihat yang Selalu Diingat Sepanjang Perjalanan</h3>
+          <p>Pelajaran berharga tentang ilmu, adab, dan kehidupan.</p>
+          <div class="story-meta"><span>Ruang Dialog</span><span>4 menit baca</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="stories-section" id="lensa">
+    <div class="section-label">06 — GALERI LENSA SANTRI</div>
+    <div class="stories-heading">
+      <div>
+        <h2 class="section-title">Satu bingkai, sejuta cerita.</h2>
+        <p class="section-intro">Momen kehidupan pesantren dalam sudut pandang kreatif santri.</p>
+      </div>
+    </div>
+    <div class="story-grid">
+      <article class="story-card searchable">
+        <div class="story-art"><span>🌄</span></div>
+        <div class="story-body">
+          <div class="category">KEHIDUPAN PESANTREN</div>
+          <h3>Pagi yang Selalu Punya Cerita</h3>
+          <p>Potret suasana dan rutinitas yang mengawali hari di pesantren.</p>
+          <div class="story-meta"><span>Lensa Santri</span><span>Galeri</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art rose"><span>📷</span></div>
+        <div class="story-body">
+          <div class="category">FOTOGRAFI</div>
+          <h3>Detail Kecil yang Sering Terlewat</h3>
+          <p>Melihat keindahan melalui hal-hal sederhana di sekitar kita.</p>
+          <div class="story-meta"><span>Galeri Kreatif</span><span>Foto</span></div>
+        </div>
+      </article>
+      <article class="story-card searchable">
+        <div class="story-art blue"><span>🌳</span></div>
+        <div class="story-body">
+          <div class="category">CERITA VISUAL</div>
+          <h3>Ruang Tumbuh dan Ruang Belajar</h3>
+          <p>Menangkap kenangan, kebersamaan, dan perjalanan mencari ilmu.</p>
+          <div class="story-meta"><span>Lensa Santri</span><span>Galeri</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
 </main>
 
 <footer id="tentang">
-  <div class="footer-inner">
-    <div>
-      <h2>SANTRIVERSE ✦</h2>
-      <p>Ruang cerita, gagasan, dan kreativitas santri.<br>
-      Dari pesantren untuk dunia.</p>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">SANTRIVERSE ✦</div>
+        <p>Ruang literasi, jurnalistik, dan kreativitas santri. Dari pesantren untuk dunia, bersama menyebarkan inspirasi.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#berita">Berita</a>
+        <a href="#opini">Opini</a>
+        <a href="#karya">Karya</a>
+        <a href="#lensa">Galeri</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#berita">Berita</a>
-      <a href="#karya">Kirim Karya</a>
-      <a href="#kamus">Kamus Santri</a>
-      <a href="#kategori">Kategori</a>
-    </div>
-    <p>© 2026 SANTRIVERSE · Baca. Berkarya. Berdampak.</p>
+    <div class="copyright">© 2026 SANTRIVERSE — Dunia Santri Tanpa Batas.</div>
   </div>
 </footer>
 
 <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
 
-<div class="modal" id="submitModal">
-  <form class="modal-box" id="submitForm">
-    <h2>Kirim Karyamu ✦</h2>
-    <p>Punya cerita menarik dari pesantren? Isi formulir ini untuk menyiapkan naskah yang bisa kamu simpan.</p>
-
-    <input id="authorName" placeholder="Nama penulis" required>
-    <input id="workTitle" placeholder="Judul karya" required>
-
-    <select id="workCategory" required>
-      <option value="">Pilih kategori karya</option>
-      <option>Pesantren</option>
-      <option>Literasi</option>
-      <option>Teknologi</option>
-      <option>Opini</option>
-      <option>Puisi</option>
-      <option>Cerpen</option>
-    </select>
-
-    <textarea id="workContent" placeholder="Tulis karya kamu di sini..." required></textarea>
-
-    <div class="modal-actions">
-      <button type="button" class="btn close-btn" id="closeForm">Batal</button>
-      <button type="submit" class="btn">Simpan Naskah ↓</button>
-    </div>
-  </form>
-</div>
-
 <script>
-const modal = document.getElementById('submitModal');
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
 
-document.getElementById('openForm').addEventListener('click', () => {
-  modal.classList.add('show');
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
 });
 
-document.getElementById('closeForm').addEventListener('click', () => {
-  modal.classList.remove('show');
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.textContent = '☰';
+  });
 });
 
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) modal.classList.remove('show');
-});
-
-// Form menyiapkan file naskah di perangkat
-document.getElementById('submitForm').addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const name = document.getElementById('authorName').value.trim();
-  const title = document.getElementById('workTitle').value.trim();
-  const category = document.getElementById('workCategory').value;
-  const content = document.getElementById('workContent').value.trim();
-
-  const draft = `SANTRIVERSE — NASKAH KARYA
-
-Judul: ${title}
-Penulis: ${name}
-Kategori: ${category}
-
-Isi karya:
-${content}
-
-Disiapkan pada: ${new Date().toLocaleString('id-ID')}`;
-
-  const blob = new Blob([draft], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-
-  link.href = url;
-  link.download = title.replace(/[^a-z0-9]/gi, '_') + '.txt';
-  link.click();
-
-  URL.revokeObjectURL(url);
-  modal.classList.remove('show');
-  event.target.reset();
-
-  alert('Naskah berhasil disiapkan dan diunduh! Untuk mengirim ke redaksi, situs perlu dihubungkan ke backend atau layanan formulir.');
-});
-
-// Pencarian artikel
+// Pencarian artikel berdasarkan judul dan isi
 const searchInput = document.getElementById('searchInput');
-const articles = [...document.querySelectorAll('.searchable')];
+const searchableItems = document.querySelectorAll('.searchable');
 
-function filterArticles() {
+searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase().trim();
-  let count = 0;
 
-  articles.forEach(article => {
-    const match = article.textContent.toLowerCase().includes(query);
-    article.style.display = match ? '' : 'none';
-    if (match) count++;
+  searchableItems.forEach(item => {
+    const text = item.innerText.toLowerCase();
+    item.style.display = text.includes(query) ? '' : 'none';
   });
-
-  document.getElementById('categoryStatus').textContent =
-    query ? `${count} artikel cocok dengan pencarianmu.` :
-    'Menampilkan semua kategori.';
-}
-
-searchInput.addEventListener('input', filterArticles);
-
-// Filter kategori
-document.querySelectorAll('.category').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('.category').forEach(item => item.classList.remove('active'));
-    button.classList.add('active');
-
-    const selected = button.dataset.filter;
-    let count = 0;
-
-    articles.forEach(article => {
-      const match = selected === 'Semua' || article.dataset.category === selected;
-      article.style.display = match ? '' : 'none';
-      if (match) count++;
-    });
-
-    searchInput.value = '';
-    document.getElementById('categoryStatus').textContent =
-      selected === 'Semua'
-        ? 'Menampilkan semua artikel.'
-        : `${count} artikel dalam kategori ${selected}.`;
-  });
-});
-
-// Pencarian kamus
-document.getElementById('glossarySearch').addEventListener('input', (event) => {
-  const query = event.target.value.toLowerCase();
-
-  document.querySelectorAll('#words .word').forEach(word => {
-    word.style.display = word.textContent.toLowerCase().includes(query) ? 'flex' : 'none';
-  });
-});
-
-// Mode warna alternatif
-document.getElementById('themeBtn').addEventListener('click', () => {
-  const lightMode = document.body.classList.toggle('light-mode');
-
-  if (lightMode) {
-    document.documentElement.style.setProperty('--green', '#e1f2e8');
-    document.documentElement.style.setProperty('--deep', '#d2e9dc');
-    document.documentElement.style.setProperty('--mint', '#23614d');
-    document.documentElement.style.setProperty('--cream', '#ffffff');
-    document.documentElement.style.setProperty('--text', '#102f2a');
-    document.getElementById('themeBtn').textContent = '☀';
-  } else {
-    document.documentElement.style.setProperty('--green', '#062e29');
-    document.documentElement.style.setProperty('--deep', '#031d1a');
-    document.documentElement.style.setProperty('--mint', '#a9f0d0');
-    document.documentElement.style.setProperty('--cream', '#f5f3eb');
-    document.documentElement.style.setProperty('--text', '#102f2a');
-    document.getElementById('themeBtn').textContent = '☾';
-  }
 });
 
 // Tombol kembali ke atas
 document.getElementById('backTop').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Animasi masuk saat bagian terlihat
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.animate(
+        [
+          { opacity: 0, transform: 'translateY(18px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ],
+        { duration: 600, easing: 'ease-out', fill: 'both' }
+      );
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.story-card, .news-mini, .category-card')
+  .forEach(item => observer.observe(item));
 </script>
 
 </body>
