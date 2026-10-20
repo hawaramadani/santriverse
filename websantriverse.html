@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANTRIVERSE — Dunia Santri Tanpa Batas</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&display=swap');
+
+:root {
+  --green: #062e29;
+  --deep: #031d1a;
+  --mint: #a9f0d0;
+  --cream: #f5f3eb;
+  --gold: #c9a66b;
+  --text: #102f2a;
+  --muted: #73847e;
+  --line: #e3e5dc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.topbar {
+  background: var(--deep);
+  color: var(--mint);
+  padding: 9px 5%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+nav {
+  height: 76px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #082a26;
+  color: white;
+  border-bottom: 1px solid #ffffff1c;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+}
+
+.logo-symbol {
+  font-size: 37px;
+  color: var(--mint);
+}
+
+.logo h2 {
+  font-size: 23px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.logo p {
+  color: #a7c0b7;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  font-size: 12px;
+}
+
+.nav-links a {
+  padding: 10px 0;
+  transition: .2s;
+}
+
+.nav-links a:hover { color: var(--mint); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search {
+  width: 230px;
+  border: 1px solid #ffffff35;
+  border-radius: 30px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 11px;
+}
+
+.search input::placeholder { color: #b8c8c1; }
+
+.icon-btn {
+  border: none;
+  color: white;
+  background: transparent;
+  font-size: 22px;
+  padding: 4px;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background: var(--deep);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #031d1a 0%, #031d1ae8 28%,
+    #031d1a60 58%, #031d1a10 100%),
+    linear-gradient(0deg, #031d1a80, transparent 45%),
+    url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=2000&q=90")
+    center 48% / cover;
+  filter: saturate(.8);
+  transform: scale(1.02);
+}
+
+/* Dekorasi ilustratif */
+.orbit {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border: 1px solid #a9f0d01c;
+  border-radius: 50%;
+  right: 8%;
+  top: -30px;
+  box-shadow: 0 0 0 45px #a9f0d009, 0 0 0 90px #a9f0d006;
+}
+
+.hero-content {
+  width: 90%;
+  max-width: 1350px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  padding: 50px 0;
+}
+
+.eyebrow {
+  color: var(--mint);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 7vw, 94px);
+  line-height: .91;
+  letter-spacing: -4px;
+  max-width: 750px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 0 8px 35px #0008;
+}
+
+.hero h1 span {
+  display: block;
+  font-family: 'Caveat', cursive;
+  color: var(--mint);
+  font-size: .63em;
+  letter-spacing: -1px;
+  text-transform: none;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.hero-desc {
+  max-width: 400px;
+  margin: 24px 0;
+  color: #d0dfd7;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.btn {
+  border: 1px solid var(--mint);
+  padding: 13px 23px;
+  border-radius: 30px;
+  background: var(--mint);
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 12px;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px #a9f0d02e;
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border-color: #ffffff70;
+}
+
+/* TICKER */
+
+.ticker {
+  overflow: hidden;
+  background: #073a32;
+  color: #e7f5ed;
+  padding: 14px 0;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: .6px;
+}
+
+.ticker-track {
+  display: inline-block;
+  min-width: max-content;
+  animation: ticker 32s linear infinite;
+}
+
+.ticker-track span {
+  margin-right: 50px;
+}
+
+.ticker-track b { color: var(--mint); }
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* MAIN CONTENT */
+
+main {
+  max-width: 1450px;
+  margin: auto;
+  padding: 38px 5%;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading small {
+  color: #478775;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(27px, 3vw, 36px);
+  margin: 8px 0;
+  letter-spacing: -.7px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(260px, .85fr);
+  gap: 25px;
+}
+
+.stories {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 13px;
+}
+
+.featured {
+  min-height: 380px;
+  border-radius: 17px;
+  position: relative;
+  overflow: hidden;
+  background: var(--green);
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+}
+
+.featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(0deg, #031d1af5 0%, #031d1a88 40%, transparent 100%),
+    url("https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1000&q=85")
+    center / cover;
+  transition: transform .6s;
+}
+
+.featured:hover::before { transform: scale(1.06); }
+
+.featured-content { padding: 25px; }
+
+.tag {
+  display: inline-block;
+  background: #b4efd1;
+  color: #08372e;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+.featured h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(23px, 2.4vw, 31px);
+  line-height: 1.25;
+  margin: 13px 0;
+}
+
+.featured p {
+  color: #d8e7df;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.meta {
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+  color: #d0e0d7;
+  font-size: 10px;
+}
+
+.small-stories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #ffffffa8;
+  transition: .25s;
+}
+
+.story:hover {
+  transform: translateY(-3px);
+  border-color: #9bcdb7;
+  box-shadow: 0 10px 25px #123d2e0b;
+}
+
+.story img {
+  width: 95px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.story .tag {
+  background: #e0f0e6;
+  font-size: 8px;
+  padding: 4px 8px;
+}
+
+.story h4 {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.story small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 21px;
+  background: #fffefa;
+}
+
+.submit-card {
+  background:
+    radial-gradient(circle at 100% 0%, #216d57 0%, transparent 55%),
+    var(--deep);
+  color: white;
+  overflow: hidden;
+}
+
+.submit-card h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 31px;
+  color: var(--mint);
+}
+
+.submit-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #d0e0d8;
+  margin: 8px 0 17px;
+}
+
+.submit-card .btn {
+  padding: 10px 18px;
+  font-size: 11px;
+}
+
+.side-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.side-title .emoji { font-size: 28px; }
+
+.side-title h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+
+.side-title p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.glossary-search {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  background: #fafaf6;
+  border-radius: 9px;
+  outline: none;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.word {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 2px;
+  border-bottom: 1px solid #e9ebe4;
+  font-size: 11px;
+}
+
+.word b { color: #0c5647; }
+.word span { color: var(--muted); text-align: right; }
+
+.category-section { margin-top: 35px; }
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category {
+  border: 1px solid var(--line);
+  border-radius: 40px;
+  background: #fffefa;
+  padding: 12px 17px;
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.category:hover, .category.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--mint);
+}
+
+.category-results {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--deep);
+  color: white;
+  padding: 35px 5%;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1350px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer h2 {
+  font-size: 21px;
+  letter-spacing: 2px;
+  color: var(--mint);
+}
+
+footer p {
+  color: #a8c0b5;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+
+footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 11px;
+}
+
+.back-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  border: none;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--mint);
+  width: 43px;
+  height: 43px;
+  font-size: 20px;
+  box-shadow: 0 5px 20px #0002;
+}
+
+/* FORM MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #001713c9;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show { display: flex; }
+
+.modal-box {
+  background: var(--cream);
+  padding: 27px;
+  border-radius: 18px;
+  width: min(100%, 470px);
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal-box h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 8px;
+}
+
+.modal-box p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 17px;
+}
+
+.modal-box input, .modal-box textarea, .modal-box select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  outline-color: #65a58b;
+  font-size: 12px;
+}
+
+.modal-box textarea { min-height: 120px; resize: vertical; }
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-actions button { flex: 1; }
+
+.close-btn {
+  background: transparent;
+  border: 1px solid #b9c7be;
+  color: var(--text);
+}
+
+@media (max-width: 1000px) {
+  nav { gap: 12px; }
+  .nav-links { gap: 12px; }
+  .search { width: 175px; }
+  .content-grid { grid-template-columns: 1fr; }
+  .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .topbar { justify-content: center; text-align: center; }
+  .topbar span:last-child { display: none; }
+
+  nav {
+    height: auto;
+    min-height: 70px;
+    flex-wrap: wrap;
+    padding: 14px 5%;
+  }
+
+  .logo h2 { font-size: 19px; }
+  .logo-symbol { font-size: 30px; }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    overflow-x: auto;
+    font-size: 11px;
+  }
+
+  .nav-links a { white-space: nowrap; }
+  .search { width: 38px; padding: 9px; }
+  .search input { display: none; }
+  .nav-right { gap: 5px; }
+
+  .hero { min-height: 420px; }
+  .hero-image {
+    background:
+      linear-gradient(90deg, #031d1aee, #031d1a8c),
+      url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1000&q=85")
+      center / cover;
+  }
+
+  .hero-content { padding: 50px 0; }
+  .hero h1 { letter-spacing: -2px; font-size: clamp(46px, 12vw, 70px); }
+  .hero-desc { font-size: 12px; }
+  main { padding: 30px 5%; }
+
+  .stories { grid-template-columns: 1fr; }
+  .featured { min-height: 350px; }
+  .small-stories { display: grid; grid-template-columns: 1fr; }
+  .story { grid-template-columns: 90px 1fr; }
+  .story img { width: 90px; height: 80px; }
+  .sidebar { grid-template-columns: 1fr; }
+  .side-card { padding: 18px; }
+  .category { padding: 10px 13px; }
+  .footer-inner { align-items: flex-start; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <span>✦ Media Kreatif Santri Masa Kini</span>
+  <span>✧ Baca · Berkarya · Berdampak</span>
+</div>
+
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-symbol">◉</span>
+    <div>
+      <h2>SANTRIVERSE</h2>
+      <p>DUNIA SANTRI TANPA BATAS</p>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <a href="#">Beranda</a>
+    <a href="#berita">Berita</a>
+    <a href="#kategori">Opini</a>
+    <a href="#karya">Karya</a>
+    <a href="#kamus">Kamus Santri</a>
+    <a href="#tentang">Tentang</a>
+  </div>
+
+  <div class="nav-right">
+    <label class="search">
+      <input id="searchInput" type="search" placeholder="Cari berita, topik...">
+      <span>⌕</span>
+    </label>
+    <button class="icon-btn" id="themeBtn" aria-label="Ganti tema">☾</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-image"></div>
+  <div class="orbit"></div>
+
+  <div class="hero-content">
+    <p class="eyebrow">✦ Media Jurnalistik Digital</p>
+    <h1>SANTRIVERSE
+      <span>Dunia Santri Tanpa Batas ✧</span>
+    </h1>
+
+    <p class="hero-desc">
+      Ruang untuk bercerita, berkarya, dan menyuarakan gagasan.
+      Dari pesantren untuk dunia.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#berita">Jelajahi Berita&nbsp; →</a>
+      <a class="btn btn-outline" href="#karya">✦ Punya Karya?</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>✦ <b>BERITA TERKINI</b></span>
+    <span>✧ Santri dan transformasi digital</span>
+    <span>✧ Literasi untuk generasi masa depan</span>
+    <span>✧ Karya santri, inspirasi negeri</span>
+    <span>✧ Dunia pesantren makin kreatif</span>
+    <span>✦ <b>BERITA TERKINI</b></span>
+    <span>✧ Santri dan transformasi digital</span>
+    <span>✧ Literasi untuk generasi masa depan</span>
+    <span>✧ Karya santri, inspirasi negeri</span>
+    <span>✧ Dunia pesantren makin kreatif</span>
+  </div>
+</div>
+
+<main>
+  <section id="berita">
+    <div class="section-heading">
+      <small>01 — PILIHAN REDAKSI</small>
+      <h2>Cerita yang layak disimak.</h2>
+      <p>Temukan perspektif baru dari dunia pesantren, literasi, dan teknologi.</p>
+    </div>
+
+    <div class="content-grid">
+      <div class="stories">
+        <article class="featured searchable" data-category="Pesantren">
+          <div class="featured-content">
+            <span class="tag">Pesantren</span>
+            <h3>Di Balik Kesederhanaan Pesantren, Ada Mimpi yang Mendunia</h3>
+            <p>Pesantren bukan hanya tempat menimba ilmu, tetapi juga ruang untuk membangun karakter, persahabatan, dan cita-cita.</p>
+            <div class="meta">
+              <span>▣ 20 Okt 2026</span>
+              <span>◉ Cerita Santri</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="small-stories">
+          <article class="story searchable" data-category="Teknologi">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Ilustrasi meja teknologi">
+            <div>
+              <span class="tag">Teknologi</span>
+              <h4>Web 2.0 dan Peluang Baru bagi Kreativitas Santri</h4>
+              <small>20 Okt 2026 · 4 menit baca</small>
+            </div>
+          </article>
+
+          <article class="story searchable" data-category="Literasi">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=400&q=80" alt="Buku catatan dan pena">
+            <div>
+              <span class="tag">Literasi</span>
+              <h4>Seni Menulis untuk Mereka yang Punya Banyak Cerita</h4>
+              <small>19 Okt 2026 · 3 menit baca</small>
+            </div>
+          </article>
+
+          <article class="story searchable" data-category="Opini">
+            <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=400&q=80" alt="Buku untuk inspirasi">
+            <div>
+              <span class="tag">Opini</span>
+              <h4>Menjadi Diri Sendiri di Tengah Ramainya Dunia Digital</h4>
+              <small>18 Okt 2026 · 5 menit baca</small>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="side-card submit-card" id="karya">
+          <h3>Punya Karya?</h3>
+          <p>Kirim tulisan, opini, puisi, cerpen, atau liputanmu di sini. Yuk, bagikan inspirasimu!</p>
+          <button class="btn" id="openForm">Kirim Karya ↗</button>
+        </section>
+
+        <section class="side-card" id="kamus">
+          <div class="side-title">
+            <span class="emoji">📚</span>
+            <div>
+              <h3>Kamus Santri</h3>
+              <p>Kenali istilah pesantren dengan mudah.</p>
+            </div>
+          </div>
+
+          <input class="glossary-search" id="glossarySearch" placeholder="⌕ Cari istilah...">
+
+          <div id="words">
+            <div class="word"><b>Santri</b><span>Orang yang belajar agama di pesantren</span></div>
+            <div class="word"><b>Kiai</b><span>Tokoh agama dan teladan</span></div>
+            <div class="word"><b>Ngaji</b><span>Belajar ilmu agama</span></div>
+            <div class="word"><b>Bandongan</b><span>Metode belajar kitab bersama</span></div>
+            <div class="word"><b>Sorogan</b><span>Belajar dengan menyetorkan bacaan</span></div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <section class="category-section" id="kategori">
+    <div class="section-heading">
+      <small>02 — TEMUKAN MINATMU</small>
+      <h2>Jelajahi dunia santri.</h2>
+    </div>
+
+    <div class="categories">
+      <button class="category active" data-filter="Semua">✦ Semua</button>
+      <button class="category" data-filter="Pesantren">🏡 Pesantren</button>
+      <button class="category" data-filter="Literasi">📖 Literasi</button>
+      <button class="category" data-filter="Teknologi">💻 Teknologi</button>
+      <button class="category" data-filter="Opini">✎ Opini</button>
+      <button class="category" data-filter="Kreativitas">🎨 Kreativitas</button>
+    </div>
+
+    <p class="category-results" id="categoryStatus">Menampilkan semua kategori.</p>
+  </section>
+</main>
+
+<footer id="tentang">
+  <div class="footer-inner">
+    <div>
+      <h2>SANTRIVERSE ✦</h2>
+      <p>Ruang cerita, gagasan, dan kreativitas santri.<br>
+      Dari pesantren untuk dunia.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#berita">Berita</a>
+      <a href="#karya">Kirim Karya</a>
+      <a href="#kamus">Kamus Santri</a>
+      <a href="#kategori">Kategori</a>
+    </div>
+    <p>© 2026 SANTRIVERSE · Baca. Berkarya. Berdampak.</p>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
+
+<div class="modal" id="submitModal">
+  <form class="modal-box" id="submitForm">
+    <h2>Kirim Karyamu ✦</h2>
+    <p>Punya cerita menarik dari pesantren? Isi formulir ini untuk menyiapkan naskah yang bisa kamu simpan.</p>
+
+    <input id="authorName" placeholder="Nama penulis" required>
+    <input id="workTitle" placeholder="Judul karya" required>
+
+    <select id="workCategory" required>
+      <option value="">Pilih kategori karya</option>
+      <option>Pesantren</option>
+      <option>Literasi</option>
+      <option>Teknologi</option>
+      <option>Opini</option>
+      <option>Puisi</option>
+      <option>Cerpen</option>
+    </select>
+
+    <textarea id="workContent" placeholder="Tulis karya kamu di sini..." required></textarea>
+
+    <div class="modal-actions">
+      <button type="button" class="btn close-btn" id="closeForm">Batal</button>
+      <button type="submit" class="btn">Simpan Naskah ↓</button>
+    </div>
+  </form>
+</div>
+
+<script>
+const modal = document.getElementById('submitModal');
+
+document.getElementById('openForm').addEventListener('click', () => {
+  modal.classList.add('show');
+});
+
+document.getElementById('closeForm').addEventListener('click', () => {
+  modal.classList.remove('show');
+});
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) modal.classList.remove('show');
+});
+
+// Form menyiapkan file naskah di perangkat
+document.getElementById('submitForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById('authorName').value.trim();
+  const title = document.getElementById('workTitle').value.trim();
+  const category = document.getElementById('workCategory').value;
+  const content = document.getElementById('workContent').value.trim();
+
+  const draft = `SANTRIVERSE — NASKAH KARYA
+
+Judul: ${title}
+Penulis: ${name}
+Kategori: ${category}
+
+Isi karya:
+${content}
+
+Disiapkan pada: ${new Date().toLocaleString('id-ID')}`;
+
+  const blob = new Blob([draft], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+
+  link.href = url;
+  link.download = title.replace(/[^a-z0-9]/gi, '_') + '.txt';
+  link.click();
+
+  URL.revokeObjectURL(url);
+  modal.classList.remove('show');
+  event.target.reset();
+
+  alert('Naskah berhasil disiapkan dan diunduh! Untuk mengirim ke redaksi, situs perlu dihubungkan ke backend atau layanan formulir.');
+});
+
+// Pencarian artikel
+const searchInput = document.getElementById('searchInput');
+const articles = [...document.querySelectorAll('.searchable')];
+
+function filterArticles() {
+  const query = searchInput.value.toLowerCase().trim();
+  let count = 0;
+
+  articles.forEach(article => {
+    const match = article.textContent.toLowerCase().includes(query);
+    article.style.display = match ? '' : 'none';
+    if (match) count++;
+  });
+
+  document.getElementById('categoryStatus').textContent =
+    query ? `${count} artikel cocok dengan pencarianmu.` :
+    'Menampilkan semua kategori.';
+}
+
+searchInput.addEventListener('input', filterArticles);
+
+// Filter kategori
+document.querySelectorAll('.category').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.category').forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+
+    const selected = button.dataset.filter;
+    let count = 0;
+
+    articles.forEach(article => {
+      const match = selected === 'Semua' || article.dataset.category === selected;
+      article.style.display = match ? '' : 'none';
+      if (match) count++;
+    });
+
+    searchInput.value = '';
+    document.getElementById('categoryStatus').textContent =
+      selected === 'Semua'
+        ? 'Menampilkan semua artikel.'
+        : `${count} artikel dalam kategori ${selected}.`;
+  });
+});
+
+// Pencarian kamus
+document.getElementById('glossarySearch').addEventListener('input', (event) => {
+  const query = event.target.value.toLowerCase();
+
+  document.querySelectorAll('#words .word').forEach(word => {
+    word.style.display = word.textContent.toLowerCase().includes(query) ? 'flex' : 'none';
+  });
+});
+
+// Mode warna alternatif
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const lightMode = document.body.classList.toggle('light-mode');
+
+  if (lightMode) {
+    document.documentElement.style.setProperty('--green', '#e1f2e8');
+    document.documentElement.style.setProperty('--deep', '#d2e9dc');
+    document.documentElement.style.setProperty('--mint', '#23614d');
+    document.documentElement.style.setProperty('--cream', '#ffffff');
+    document.documentElement.style.setProperty('--text', '#102f2a');
+    document.getElementById('themeBtn').textContent = '☀';
+  } else {
+    document.documentElement.style.setProperty('--green', '#062e29');
+    document.documentElement.style.setProperty('--deep', '#031d1a');
+    document.documentElement.style.setProperty('--mint', '#a9f0d0');
+    document.documentElement.style.setProperty('--cream', '#f5f3eb');
+    document.documentElement.style.setProperty('--text', '#102f2a');
+    document.getElementById('themeBtn').textContent = '☾';
+  }
+});
+
+// Tombol kembali ke atas
+document.getElementById('backTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+  </html>
