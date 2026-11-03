@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,919 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --green: #062b26;
-  --green2: #0c4036;
-  --mint: #a9f1d1;
-  --cream: #f5f4ec;
-  --ink: #122c27;
-  --muted: #78847d;
-  --line: #e4e7dd;
-  --card: #fffef9;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  overflow-x: hidden;
-}
-
-a { color: inherit; text-decoration: none; }
-button, input { font: inherit; }
-button { cursor: pointer; }
-
-.container {
-  width: min(1440px, 94%);
-  margin: auto;
-}
-
-/* HEADER */
-
-header {
-  background: #04231f;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #ffffff20;
-}
-
-.nav {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.brand-icon {
-  width: 46px;
-  height: 46px;
-  border: 2px solid var(--mint);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--mint);
-  font-size: 27px;
-  transform: rotate(-15deg);
-}
-
-.brand strong {
-  display: block;
-  font-size: 22px;
-  letter-spacing: 2px;
-  line-height: 1.2;
-}
-
-.brand small {
-  font-size: 10px;
-  color: #c2d8ce;
-  letter-spacing: .5px;
-}
-
-.nav-links {
-  display: flex;
-  gap: clamp(12px, 2.2vw, 32px);
-  align-items: center;
-  font-size: 13px;
-}
-
-.nav-links a {
-  padding: 10px 0;
-  color: #e5eee9;
-  transition: color .2s;
-}
-
-.nav-links a:hover { color: var(--mint); }
-
-.search {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ffffff35;
-  border-radius: 30px;
-  padding: 10px 14px;
-  min-width: 200px;
-  max-width: 290px;
-}
-
-.search input {
-  width: 100%;
-  background: transparent;
-  color: white;
-  border: none;
-  outline: none;
-  font-size: 12px;
-}
-
-.search input::placeholder { color: #c5d4ce; }
-
-.menu-btn {
-  display: none;
-  border: 1px solid #ffffff40;
-  color: white;
-  background: transparent;
-  padding: 9px 12px;
-  border-radius: 10px;
-}
-
-/* HERO DESKTOP */
-
-.hero {
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(0, 30, 24, 0.80),
-            rgba(0, 30, 24, 0.12)
-        ),
-        url('masjid-baru.jpg');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.hero-inner {
-  min-height: 400px;
-  display: grid;
-  grid-template-columns: .92fr 1.08fr;
-  align-items: center;
-  gap: 30px;
-  padding-top: 28px;
-  padding-bottom: 28px;
-}
-
-.hero-copy { position: relative; z-index: 2; }
-
-.eyebrow {
-  color: var(--mint);
-  font-size: 11px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 5.5vw, 82px);
-  line-height: .95;
-  letter-spacing: -3px;
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-.hero h1 span { color: var(--mint); }
-
-.hero-subtitle {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(19px, 2.4vw, 30px);
-  color: #b5f3d5;
-  margin-bottom: 17px;
-}
-
-.hero-desc {
-  color: #d4e2dc;
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 440px;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 25px;
-}
-
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  border: 0;
-  border-radius: 30px;
-  padding: 13px 20px;
-  font-size: 12px;
-  font-weight: 800;
-  transition: transform .25s, background .25s;
-}
-
-.btn:hover { transform: translateY(-3px); }
-.btn-mint { background: var(--mint); color: var(--green); }
-.btn-outline { background: transparent; color: white; border: 1px solid #ffffff65; }
-
-/* ILUSTRASI ANIMASI BUATAN CSS */
-
-.art-scene {
-  height: 340px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px;
-  background:
-    radial-gradient(ellipse at 65% 15%, #c1f0c9 0, transparent 22%),
-    linear-gradient(150deg, #427c69, #123f36 58%, #071f1d);
-  border: 1px solid #ffffff25;
-  box-shadow: 0 25px 65px #00000030;
-}
-
-.moon {
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background: #d9f4ce;
-  right: 15%;
-  top: 12%;
-  box-shadow: 0 0 45px #d9f4ce70;
-}
-
-.star {
-  position: absolute;
-  color: #e4f8cb;
-  animation: twinkle 2.5s ease-in-out infinite alternate;
-}
-.s1 { top: 13%; left: 13%; }
-.s2 { top: 28%; right: 12%; animation-delay: .7s; }
-.s3 { top: 9%; left: 50%; animation-delay: 1.2s; }
-
-.mosque {
-  position: absolute;
-  bottom: 65px;
-  left: 8%;
-  right: 8%;
-  height: 155px;
-}
-
-.mosque-building {
-  position: absolute;
-  bottom: 0;
-  left: 12%;
-  right: 12%;
-  height: 83px;
-  background: #d8cba0;
-  border: 5px solid #aeaa7a;
-  border-bottom: none;
-}
-
-.mosque-building:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 24px;
-  background: #b6bd91;
-  top: -24px;
-  left: -5px;
-  border: 5px solid #9ea984;
-}
-
-.dome {
-  position: absolute;
-  bottom: 83px;
-  width: 86px;
-  height: 74px;
-  background: linear-gradient(120deg, #a7e5c9, #3e8f75);
-  border-radius: 60% 60% 8% 8%;
-  border: 4px solid #d9e5b7;
-}
-
-.dome:before {
-  content: "";
-  position: absolute;
-  width: 3px;
-  height: 20px;
-  background: #e5e5bd;
-  top: -22px;
-  left: 50%;
-}
-
-.dome:after {
-  content: "☾";
-  position: absolute;
-  color: #f3e9b7;
-  top: -37px;
-  left: 40%;
-  font-size: 18px;
-}
-
-.dome-main { left: calc(50% - 43px); }
-.dome-left { left: 6%; transform: scale(.62); transform-origin: bottom; }
-.dome-right { right: 6%; transform: scale(.62); transform-origin: bottom; }
-
-.door {
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 18px);
-  width: 36px;
-  height: 58px;
-  background: #1b5145;
-  border: 3px solid #b9d5b0;
-  border-radius: 22px 22px 0 0;
-}
-
-.window {
-  position: absolute;
-  bottom: 30px;
-  width: 21px;
-  height: 28px;
-  background: #315f51;
-  border: 3px solid #f1e8c4;
-  border-radius: 15px 15px 0 0;
-}
-.w1 { left: 22%; }
-.w2 { right: 22%; }
-
-.ground {
-  position: absolute;
-  bottom: 0;
-  height: 75px;
-  width: 100%;
-  background: linear-gradient(#214c3d, #0a2a24);
-  clip-path: polygon(0 35%, 25% 0, 65% 20%, 100% 0, 100% 100%, 0 100%);
-}
-
-.desk {
-  position: absolute;
-  bottom: 22px;
-  left: 7%;
-  width: 86%;
-  height: 16px;
-  background: #d5bc8b;
-  transform: skew(-10deg);
-  border-radius: 4px;
-  box-shadow: 0 10px 0 #6c5c3d;
-}
-
-.book {
-  position: absolute;
-  bottom: 38px;
-  width: 100px;
-  height: 18px;
-  border-radius: 3px;
-  background: #e9d5a1;
-  border-bottom: 4px solid #a37c4f;
-  box-shadow: 0 6px 0 #153c32;
-}
-.book1 { left: 12%; transform: rotate(-5deg); }
-.book2 { left: 14%; bottom: 56px; background: #8abda2; transform: rotate(3deg); }
-.book3 { left: 16%; bottom: 74px; width: 83px; background: #e0b87c; }
-
-.laptop {
-  position: absolute;
-  right: 14%;
-  bottom: 39px;
-  width: 110px;
-  height: 75px;
-  background: #182d2b;
-  border: 5px solid #9aab9a;
-  border-radius: 7px;
-  transform: rotate(4deg);
-  box-shadow: 0 7px 18px #0005;
-}
-.laptop:before {
-  content: "✦  SANTRI";
-  display: grid;
-  place-items: center;
-  height: 100%;
-  color: #a9f1d1;
-  font-size: 12px;
-}
-.laptop:after {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: -10px;
-  width: 120px;
-  height: 8px;
-  background: #a8b8a4;
-  clip-path: polygon(7% 0, 93% 0, 100% 100%, 0 100%);
-}
-
-.floating-note {
-  position: absolute;
-  right: 7%;
-  top: 18%;
-  background: #f5e8c5;
-  color: #17463a;
-  padding: 13px 15px;
-  border-radius: 4px;
-  font-family: 'Playfair Display', serif;
-  font-size: 12px;
-  transform: rotate(7deg);
-  box-shadow: 0 10px 20px #0003;
-  animation: float 4s ease-in-out infinite;
-}
-
-.floating-pen {
-  position: absolute;
-  top: 35%;
-  left: 10%;
-  font-size: 28px;
-  animation: float 3.5s ease-in-out infinite reverse;
-}
-
-.art-caption {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  color: #e0f4e6;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(5deg); }
-  50% { transform: translateY(-12px) rotate(1deg); }
-}
-@keyframes twinkle {
-  from { opacity: .4; transform: scale(.8); }
-  to { opacity: 1; transform: scale(1.15); }
-}
-
-/* NEWS TICKER */
-
-.ticker {
-  background: #0b3830;
-  color: #e6f5ed;
-  overflow: hidden;
-  border-top: 1px solid #ffffff12;
-  border-bottom: 1px solid #ffffff12;
-}
-
-.ticker-inner {
-  display: flex;
-  gap: 35px;
-  align-items: center;
-  width: max-content;
-  padding: 15px 0;
-  animation: ticker 28s linear infinite;
-  font-size: 12px;
-}
-.ticker-inner span:first-child { color: var(--mint); font-weight: 800; }
-@keyframes ticker { to { transform: translateX(-50%); } }
-
-/* SECTION */
-
-main { padding: 30px 0 65px; }
-
-.section-label {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #537c69;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(25px, 3vw, 37px);
-  line-height: 1.2;
-  margin-bottom: 8px;
-}
-
-.section-intro {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-  margin-bottom: 22px;
-}
-
-/* FEATURED NEWS + SIDEBAR */
-
-.news-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(260px, .85fr);
-  gap: 25px;
-}
-
-.news-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(230px, .85fr);
-  gap: 16px;
-}
-
-.featured {
-  min-height: 370px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  color: white;
-  background:
-    linear-gradient(0deg, #031f1bdc, #031f1b05 85%),
-    radial-gradient(ellipse at 50% 20%, #a8d7b4, transparent 25%),
-    linear-gradient(135deg, #6c9977, #163f32 70%);
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-  isolation: isolate;
-}
-
-.featured:before {
-  content: "✦";
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 40px;
-  color: #f4edc0;
-  animation: twinkle 3s infinite alternate;
-}
-
-.featured:after {
-  content: "☾";
-  position: absolute;
-  font-size: 230px;
-  top: 20px;
-  right: 20px;
-  color: #d5edce20;
-  z-index: -1;
-}
-
-.featured-content { max-width: 500px; }
-
-.tag {
-  display: inline-block;
-  border: 1px solid #c6f5d5;
-  background: #0b3c2fc9;
-  border-radius: 30px;
-  padding: 6px 11px;
-  font-size: 10px;
-  font-weight: 800;
-  margin-bottom: 13px;
-}
-
-.featured h3 {
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.16;
-  margin-bottom: 12px;
-}
-
-.featured p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #e3eee7;
-}
-
-.read-link {
-  display: inline-block;
-  margin-top: 17px;
-  background: var(--mint);
-  color: var(--green);
-  border-radius: 25px;
-  padding: 11px 15px;
-  font-size: 11px;
-  font-weight: 800;
-}
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.news-mini {
-  display: grid;
-  grid-template-columns: 105px minmax(0, 1fr);
-  gap: 12px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  padding: 10px;
-  min-height: 108px;
-  transition: transform .25s, box-shadow .25s;
-}
-.news-mini:hover, .story-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px #153b2b12;
-}
-
-.mini-art {
-  min-height: 85px;
-  border-radius: 9px;
-  display: grid;
-  place-items: center;
-  font-size: 34px;
-  background: linear-gradient(140deg, #c3ddbf, #285e4a);
-}
-
-.mini-art.gold { background: linear-gradient(140deg, #f0d7a4, #557a58); }
-.mini-art.blue { background: linear-gradient(140deg, #c2ddd7, #355f62); }
-
-.mini-content { align-self: center; }
-.mini-content .category {
-  color: #34725c;
-  font-size: 9px;
-  letter-spacing: 1px;
-  font-weight: 800;
-}
-.mini-content h4 { font-size: 13px; line-height: 1.45; margin: 7px 0; }
-.mini-content small { color: var(--muted); font-size: 10px; }
-
-/* SIDEBAR */
-
-.sidebar { display: flex; flex-direction: column; gap: 15px; }
-
-.pitch {
-  position: relative;
-  overflow: hidden;
-  border-radius: 17px;
-  background: linear-gradient(130deg, #0a4237, #05251f);
-  color: white;
-  padding: 23px;
-}
-.pitch h3 {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 25px;
-  margin-bottom: 8px;
-}
-.pitch p { font-size: 12px; line-height: 1.7; color: #d8e7df; max-width: 260px; }
-.pitch .btn { margin-top: 15px; padding: 10px 15px; }
-.pitch-icon {
-  position: absolute;
-  right: 17px;
-  top: 22px;
-  font-size: 40px;
-  color: var(--mint);
-  animation: float 4s infinite;
-}
-
-.glossary {
-  background: #fffef9;
-  border: 1px solid var(--line);
-  border-radius: 17px;
-  padding: 20px;
-}
-.glossary h3 { font-family: 'Playfair Display', serif; font-size: 22px; }
-.glossary p { color: var(--muted); font-size: 12px; margin: 6px 0 15px; }
-.glossary-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  border-top: 1px solid var(--line);
-  padding: 12px 0;
-  font-size: 12px;
-}
-.glossary-row span { color: var(--muted); text-align: right; }
-
-/* CATEGORY NAV */
-
-.category-section { margin-top: 42px; }
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 13px;
-}
-.category-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border: 1px solid var(--line);
-  background: #fffef9;
-  border-radius: 14px;
-  padding: 16px 12px;
-  transition: .25s;
-}
-.category-card:hover {
-  background: #e1f5e7;
-  transform: translateY(-3px);
-}
-.category-icon {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: #e0eee0;
-  font-size: 21px;
-}
-.category-card strong { display: block; font-size: 12px; line-height: 1.4; }
-.category-card small { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
-
-/* FIVE JOURNALISM SECTIONS */
-
-.stories-section { margin-top: 55px; }
-
-.stories-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 15px;
-  margin-bottom: 22px;
-}
-
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 19px;
-}
-
-.story-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: .25s;
-}
-
-.story-art {
-  height: 185px;
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  font-size: 72px;
-  background: linear-gradient(145deg, #b3d9b5, #1b5844);
-}
-.story-art:before, .story-art:after {
-  content: "";
-  position: absolute;
-  border: 1px solid #ffffff50;
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-}
-.story-art:after { width: 240px; height: 240px; }
-.story-art span { position: relative; z-index: 2; animation: float 4s infinite; }
-.story-art.cream { background: linear-gradient(145deg, #eadab1, #66876c); }
-.story-art.blue { background: linear-gradient(145deg, #c4dfd6, #346b6d); }
-.story-art.rose { background: linear-gradient(145deg, #e9c8a8, #5e6550); }
-.story-art.dark { background: linear-gradient(145deg, #557d67, #102f2a); }
-
-.story-body { padding: 19px; }
-.story-body .category { color: #34725c; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
-.story-body h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  line-height: 1.35;
-  margin: 10px 0;
-}
-.story-body p { font-size: 12px; color: var(--muted); line-height: 1.7; }
-.story-meta { display: flex; justify-content: space-between; margin-top: 16px; color: var(--muted); font-size: 10px; }
-
-/* SEARCH FILTER */
-
-.filter-bar { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
-.filter-btn {
-  border: 1px solid #d7e1d7;
-  border-radius: 30px;
-  background: #fffef9;
-  padding: 10px 15px;
-  color: var(--ink);
-  font-size: 11px;
-}
-.filter-btn.active, .filter-btn:hover {
-  background: var(--green);
-  color: white;
-}
-
-/* FOOTER */
-
-footer {
-  background: #04231f;
-  color: #e9f2ec;
-  padding: 38px 0 25px;
-  margin-top: 50px;
-}
-.footer-inner {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 30px;
-}
-.footer-brand { font-size: 23px; letter-spacing: 2px; font-weight: 800; }
-.footer-inner p { color: #b8cec2; font-size: 12px; line-height: 1.8; max-width: 350px; margin-top: 10px; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: 12px; }
-.copyright { border-top: 1px solid #ffffff20; margin-top: 25px; padding-top: 18px; font-size: 10px; color: #9cb5a7; }
-
-.back-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--green);
-  color: white;
-  font-size: 21px;
-  box-shadow: 0 6px 20px #0002;
-  z-index: 80;
-}
-
-/* RESPONSIVE: TABLET */
-
-@media (max-width: 1100px) {
-  .nav { gap: 14px; }
-  .brand strong { font-size: 18px; }
-  .nav-links { gap: 13px; font-size: 12px; }
-  .search { min-width: 160px; }
-  .hero-inner { grid-template-columns: .9fr 1.1fr; }
-  .news-layout { grid-template-columns: 1fr; }
-  .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
-  .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* RESPONSIVE: MOBILE */
-
-@media (max-width: 760px) {
-  .container { width: min(100% - 28px, 560px); }
-
-  .nav { min-height: 66px; flex-wrap: wrap; padding: 10px 0; }
-  .brand-icon { width: 38px; height: 38px; font-size: 22px; }
-  .brand strong { font-size: 16px; letter-spacing: 1.4px; }
-  .brand small { font-size: 9px; }
-
-  .menu-btn { display: block; }
-  .search { order: 3; max-width: none; min-width: 100%; padding: 9px 13px; }
-
-  .nav-links {
-    display: none;
-    order: 4;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 5px 0 10px;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 11px 6px; border-top: 1px solid #ffffff18; }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-top: 35px;
-    padding-bottom: 25px;
-  }
-  .eyebrow { font-size: 9px; letter-spacing: 3px; margin-bottom: 13px; }
-  .hero h1 { font-size: clamp(43px, 12vw, 64px); letter-spacing: -2px; }
-  .hero-subtitle { font-size: 23px; }
-  .hero-desc { font-size: 12px; }
-  .hero-actions { margin-top: 19px; }
-  .btn { padding: 12px 16px; font-size: 11px; }
-
-  .art-scene { height: 270px; border-radius: 16px; }
-  .mosque { transform: scale(.82); transform-origin: bottom center; left: 0; right: 0; }
-  .floating-note { font-size: 10px; padding: 10px; }
-
-  .ticker-inner { padding: 12px 0; font-size: 11px; }
-
-  main { padding-top: 25px; }
-  .section-title { font-size: 27px; }
-  .section-intro { font-size: 12px; }
-
-  .news-top { grid-template-columns: 1fr; }
-  .featured { min-height: 330px; padding: 20px; }
-  .featured h3 { font-size: 28px; }
-  .featured p { font-size: 12px; }
-  .news-list { gap: 10px; }
-  .news-mini { grid-template-columns: 88px minmax(0, 1fr); min-height: 95px; }
-  .mini-art { min-height: 75px; font-size: 29px; }
-
-  .sidebar { grid-template-columns: 1fr; }
-  .pitch { padding: 21px; }
-
-  .category-section { margin-top: 32px; }
-  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
-  .category-card { padding: 12px 9px; gap: 9px; }
-  .category-icon { width: 34px; height: 34px; font-size: 18px; }
-  .category-card strong { font-size: 11px; }
-  .category-card small { font-size: 9px; }
-
-  .stories-section { margin-top: 38px; }
-  .stories-heading { align-items: start; flex-direction: column; }
-  .story-grid { grid-template-columns: 1fr; gap: 14px; }
-  .story-art { height: 175px; }
-  .story-body h3 { font-size: 20px; }
-
-  .footer-inner { flex-direction: column; }
-  .footer-links { gap: 14px; }
-  .back-top { right: 13px; bottom: 14px; width: 40px; height: 40px; }
-}
-
-/* HP KECIL */
-
-@media (max-width: 360px) {
-  .container { width: calc(100% - 22px); }
-  .hero h1 { font-size: 39px; }
-  .brand strong { font-size: 14px; }
-  .featured { min-height: 300px; }
-  .featured h3 { font-size: 24px; }
-  .category-card { flex-direction: column; align-items: flex-start; }
-  .category-grid { gap: 7px; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -1040,6 +129,7 @@ footer {
                 <small>3 Mei · Literasi digital</small>
               </div>
             </article>
+
             <article class="news-mini searchable">
               <div class="mini-art gold">✒️</div>
               <div class="mini-content">
@@ -1048,6 +138,7 @@ footer {
                 <small>2 Mei · Kepenulisan</small>
               </div>
             </article>
+
             <article class="news-mini searchable">
               <div class="mini-art blue">📱</div>
               <div class="mini-content">
@@ -1085,12 +176,32 @@ footer {
     <div class="section-label">TEMUKAN MINATMU</div>
     <h2 class="section-title">Jelajahi dunia santri.</h2>
     <p class="section-intro">Pilih ruang yang paling dekat dengan minatmu.</p>
+
     <div class="category-grid">
-      <a class="category-card" href="#liputan"><div class="category-icon">🏫</div><div><strong>Pesantren</strong><small>Berita & liputan</small></div></a>
-      <a class="category-card" href="#opini"><div class="category-icon">✍️</div><div><strong>Literasi</strong><small>Opini & esai</small></div></a>
-      <a class="category-card" href="#lensa"><div class="category-icon">📷</div><div><strong>Fotografi</strong><small>Galeri lensa</small></div></a>
-      <a class="category-card" href="#tokoh"><div class="category-icon">🎙️</div><div><strong>Wawancara</strong><small>Cerita inspiratif</small></div></a>
-      <a class="category-card" href="#karya"><div class="category-icon">📖</div><div><strong>Kreativitas</strong><small>Sastra & karya</small></div></a>
+      <a class="category-card" href="#liputan">
+        <div class="category-icon">🏫</div>
+        <div><strong>Pesantren</strong><small>Berita & liputan</small></div>
+      </a>
+
+      <a class="category-card" href="#opini">
+        <div class="category-icon">✍️</div>
+        <div><strong>Literasi</strong><small>Opini & esai</small></div>
+      </a>
+
+      <a class="category-card" href="#lensa">
+        <div class="category-icon">📷</div>
+        <div><strong>Fotografi</strong><small>Galeri lensa</small></div>
+      </a>
+
+      <a class="category-card" href="#tokoh">
+        <div class="category-icon">🎙️</div>
+        <div><strong>Wawancara</strong><small>Cerita inspiratif</small></div>
+      </a>
+
+      <a class="category-card" href="#karya">
+        <div class="category-icon">📖</div>
+        <div><strong>Kreativitas</strong><small>Sastra & karya</small></div>
+      </a>
     </div>
   </section>
 
@@ -1102,6 +213,7 @@ footer {
         <p class="section-intro">Kabar, gagasan, dan cerita dari balik kehidupan santri.</p>
       </div>
     </div>
+
     <div class="story-grid">
       <article class="story-card searchable">
         <div class="story-art"><span>🏫</span></div>
@@ -1112,6 +224,7 @@ footer {
           <div class="story-meta"><span>Redaksi Santriverse</span><span>5 menit baca</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art cream"><span>📰</span></div>
         <div class="story-body">
@@ -1121,6 +234,7 @@ footer {
           <div class="story-meta"><span>Tim Liputan</span><span>4 menit baca</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art blue"><span>🌱</span></div>
         <div class="story-body">
@@ -1141,6 +255,7 @@ footer {
         <p class="section-intro">Tempat gagasan santri bertemu dengan dunia yang lebih luas.</p>
       </div>
     </div>
+
     <div class="story-grid">
       <article class="story-card searchable">
         <div class="story-art dark"><span>💭</span></div>
@@ -1151,6 +266,7 @@ footer {
           <div class="story-meta"><span>Opini Santri</span><span>4 menit baca</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art cream"><span>🌿</span></div>
         <div class="story-body">
@@ -1160,6 +276,7 @@ footer {
           <div class="story-meta"><span>Esai Pilihan</span><span>3 menit baca</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art blue"><span>🌏</span></div>
         <div class="story-body">
@@ -1180,6 +297,7 @@ footer {
         <p class="section-intro">Puisi, cerpen, dan karya kreatif dari para santri.</p>
       </div>
     </div>
+
     <div class="story-grid">
       <article class="story-card searchable">
         <div class="story-art rose"><span>📜</span></div>
@@ -1190,6 +308,7 @@ footer {
           <div class="story-meta"><span>Ruang Sastra</span><span>Puisi</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art"><span>📚</span></div>
         <div class="story-body">
@@ -1199,6 +318,7 @@ footer {
           <div class="story-meta"><span>Ruang Cerita</span><span>Cerpen</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art cream"><span>🖋️</span></div>
         <div class="story-body">
@@ -1219,6 +339,7 @@ footer {
         <p class="section-intro">Percakapan dan pengalaman dari orang-orang yang memberi makna.</p>
       </div>
     </div>
+
     <div class="story-grid">
       <article class="story-card searchable">
         <div class="story-art dark"><span>🎙️</span></div>
@@ -1229,6 +350,7 @@ footer {
           <div class="story-meta"><span>Tim Wawancara</span><span>6 menit baca</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art blue"><span>🌟</span></div>
         <div class="story-body">
@@ -1238,6 +360,7 @@ footer {
           <div class="story-meta"><span>Profil Santri</span><span>5 menit baca</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art cream"><span>📖</span></div>
         <div class="story-body">
@@ -1258,6 +381,7 @@ footer {
         <p class="section-intro">Momen kehidupan pesantren dalam sudut pandang kreatif santri.</p>
       </div>
     </div>
+
     <div class="story-grid">
       <article class="story-card searchable">
         <div class="story-art"><span>🌄</span></div>
@@ -1268,6 +392,7 @@ footer {
           <div class="story-meta"><span>Lensa Santri</span><span>Galeri</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art rose"><span>📷</span></div>
         <div class="story-body">
@@ -1277,6 +402,7 @@ footer {
           <div class="story-meta"><span>Galeri Kreatif</span><span>Foto</span></div>
         </div>
       </article>
+
       <article class="story-card searchable">
         <div class="story-art blue"><span>🌳</span></div>
         <div class="story-body">
@@ -1298,6 +424,7 @@ footer {
         <div class="footer-brand">SANTRIVERSE ✦</div>
         <p>Ruang literasi, jurnalistik, dan kreativitas santri. Dari pesantren untuk dunia, bersama menyebarkan inspirasi.</p>
       </div>
+
       <div class="footer-links">
         <a href="#beranda">Beranda</a>
         <a href="#berita">Berita</a>
@@ -1306,6 +433,7 @@ footer {
         <a href="#lensa">Galeri</a>
       </div>
     </div>
+
     <div class="copyright">© 2026 SANTRIVERSE — Dunia Santri Tanpa Batas.</div>
   </div>
 </footer>
@@ -1367,4 +495,4 @@ document.querySelectorAll('.story-card, .news-mini, .category-card')
 </script>
 
 </body>
-  </html>
+</html>
