@@ -1370,3 +1370,77 @@ footer {
   }
 }
 
+/* FORM PENGIRIMAN KARYA */
+.submission-section {
+  max-width: 750px;
+  margin: 80px auto;
+  padding: 35px;
+  background: #f5f4ec;
+  border: 1px solid #dce6dc;
+  border-radius: 20px;
+}
+
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.submission-form label {
+  font-weight: 700;
+  color: #123d32;
+  margin-top: 8px;
+}
+
+.submission-form input,
+.submission-form select,
+.submission-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cbd8ce;
+  border-radius: 10px;
+  background: white;
+  color: #123d32;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.submission-form textarea {
+  resize: vertical;
+}
+
+.submission-form input:focus,
+.submission-form select:focus,
+.submission-form textarea:focus {
+  outline: 2px solid #78b99b;
+  border-color: #78b99b;
+}
+
+.submission-form small {
+  color: #66776d;
+  font-size: 12px;
+}
+
+.submission-form button {
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  font-family: inherit;
+  justify-content: center;
+}
+
+#formMessage {
+  color: #176b49;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .submission-section {
+    padding: 22px;
+    margin: 45px 12px;
+  }
+}
+
