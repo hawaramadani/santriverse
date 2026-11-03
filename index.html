@@ -152,12 +152,65 @@
       </div>
 
       <aside class="sidebar">
-        <div class="pitch" id="karya">
-          <div class="pitch-icon">➤</div>
-          <h3>Punya Karya?</h3>
-          <p>Kirim tulisan, opini, puisi, atau liputanmu di sini. Yuk, bagikan inspirasi melalui tulisanmu!</p>
-          <a class="btn btn-mint" href="mailto:redaksi@santriverse.id?subject=Pengiriman%20Karya%20Santri">Kirim Karya ↗</a>
-        </div>
+        
+<div class="pitch" id="karya">
+  <div class="pitch-icon">➤</div>
+  <h3>Punya Karya?</h3>
+  <p>Kirim tulisan, opini, puisi, atau karya kreatifmu. Saatnya karyamu dikenal lebih luas!</p>
+  <a class="btn btn-mint" href="#form-karya">
+    Kirim Karya ↗
+  </a>
+</div>
+
+<section class="submission-section" id="form-karya">
+  <div class="section-label">RUANG KONTRIBUSI</div>
+  <h2 class="section-title">Bagikan karyamu.</h2>
+  <p class="section-intro">
+    Setiap karya punya cerita. Kirimkan dan jadilah bagian dari SANTRIVERSE.
+  </p>
+
+  <form id="submissionForm" class="submission-form">
+    <label for="nama">Nama Lengkap</label>
+    <input type="text" id="nama" name="nama"
+      placeholder="Masukkan nama lengkap" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email"
+      placeholder="nama@email.com" required>
+
+    <label for="judul">Judul Karya</label>
+    <input type="text" id="judul" name="judul"
+      placeholder="Tuliskan judul karyamu" required>
+
+    <label for="kategori">Kategori Karya</label>
+    <select id="kategori" name="kategori" required>
+      <option value="">Pilih kategori</option>
+      <option>Puisi</option>
+      <option>Cerpen</option>
+      <option>Opini</option>
+      <option>Esai</option>
+      <option>Berita dan Liputan</option>
+      <option>Fotografi</option>
+      <option>Karya Kreatif Lainnya</option>
+    </select>
+
+    <label for="deskripsi">Deskripsi Karya</label>
+    <textarea id="deskripsi" name="deskripsi"
+      placeholder="Ceritakan sedikit tentang karyamu..."
+      rows="5" required></textarea>
+
+    <label for="fileKarya">Upload File Karya</label>
+    <input type="file" id="fileKarya" name="fileKarya"
+      accept=".jpg,.jpeg,.png,.pdf" required>
+    <small>Format yang diterima: JPG, JPEG, PNG, dan PDF.</small>
+
+    <button type="submit" class="btn btn-mint">
+      Kirim Karya ↗
+    </button>
+
+    <p id="formMessage"></p>
+  </form>
+</section>
 
         <div class="glossary" id="kamus">
           <h3>📚 Kamus Santri</h3>
@@ -169,8 +222,6 @@
           <div class="glossary-row"><b>Sorogan</b><span>Belajar secara individual</span></div>
         </div>
       </aside>
-    </div>
-  </section>
 
   <section class="category-section">
     <div class="section-label">TEMUKAN MINATMU</div>
