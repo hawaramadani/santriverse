@@ -543,7 +543,36 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.story-card, .news-mini, .category-card')
   .forEach(item => observer.observe(item));
-</script>
+  
+// Form pengiriman karya
+const submissionForm = document.getElementById('submissionForm');
 
+submissionForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const file = document.getElementById('fileKarya').files[0];
+  const message = document.getElementById('formMessage');
+
+  const allowedTypes = [
+    'image/jpeg',
+    'image/png',
+    'application/pdf'
+  ];
+
+  if (!file || !allowedTypes.includes(file.type)) {
+    message.textContent = 'Format file harus JPG, PNG, atau PDF.';
+    return;
+  }
+
+  if (file.size > 5 * 1024 * 1024) {
+    message.textContent = 'Ukuran file maksimal 5 MB.';
+    return;
+  }
+
+  message.textContent =
+    'Data berhasil divalidasi! Hubungkan form ke layanan pengiriman agar karya dapat diterima redaksi.';
+});
+
+  </script>
 </body>
 </html>
